@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="operation_error_network">Нет доступа к интернету</string>
+    <string name="operation_error_server_unavailable">Сервер сейчас недоступен</string>
+    <string name="operation_error_bad_request">Неверный запрос</string>
+    <string name="operation_error_not_found">Не найдено</string>
+    <string name="operation_error_internal">Внутренняя ошибка сервера</string>
+    <string name="operation_error_server">Серверная ошибка</string>
+    <string name="operation_error_unknown">Что-то пошло не так, попробуйте еще раз позднее</string>
+</resources>

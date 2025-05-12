@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pet_type_other">Ostatní</string>
+    <string name="pet_type_cats">Kočky</string>
+    <string name="pet_type_dogs">Psi</string>
+    <string name="pet_type_birds">Ptáci</string>
+    <string name="pet_type_fishes">Ryby</string>
+    <string name="pet_type_rodents">Hlodavci</string>
+    <string name="pet_type_reptiles">Plaz</string>
+    <string name="pet_type_exotic">Exotický</string>
+</resources>

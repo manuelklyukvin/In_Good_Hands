@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_nav_bar_button">Home</string>
+    <string name="profile_nav_bar_button">Profile</string>
+
+    <string name="retry_button">Retry</string>
+</resources>

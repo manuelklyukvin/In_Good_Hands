@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_query_hint">Klíčová slova</string>
+
+    <string name="pet_type_label">Pohled</string>
+
+    <string name="previous_page_button">Před. stránka</string>
+    <string name="next_page_button">Další stránka</string>
+
+    <string name="no_more_feed_posts_warning">Ups… Vypadá to jako příspěvky jsou u konce :(</string>
+    <string name="no_feed_posts_found_warning">Ups… Vypadá to jako žádné příspěvky nebyly nalezeny :(</string>
+</resources>

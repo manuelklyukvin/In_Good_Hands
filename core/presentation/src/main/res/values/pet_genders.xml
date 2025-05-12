@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pet_gender_unknown">Unknown</string>
+    <string name="pet_gender_male">Male</string>
+    <string name="pet_gender_female">Female</string>
+</resources>

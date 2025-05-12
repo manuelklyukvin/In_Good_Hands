@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pet_gender_unknown">Neznámý</string>
+    <string name="pet_gender_male">Mužské</string>
+    <string name="pet_gender_female">Ženské</string>
+</resources>

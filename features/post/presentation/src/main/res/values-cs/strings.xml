@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="image_pager_counter">z</string>
+
+    <string name="pet_info_label">Informace o mazlíčkovi</string>
+    <string name="pet_nickname_label">Přezdívka</string>
+    <string name="pet_default_nickname">Neznámá</string>
+    <string name="pet_type_label">Pohled</string>
+    <string name="pet_gender_label">Pohlaví</string>
+    <string name="pet_age_label">Věk</string>
+    <string name="pet_breed_label">Plemeno</string>
+
+    <string name="user_info_label">Publikováno</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pet_type_other">Other</string>
+    <string name="pet_type_cats">Cats</string>
+    <string name="pet_type_dogs">Dogs</string>
+    <string name="pet_type_birds">Birds</string>
+    <string name="pet_type_fishes">Fishes</string>
+    <string name="pet_type_rodents">Rodents</string>
+    <string name="pet_type_reptiles">Reptiles</string>
+    <string name="pet_type_exotic">Exotic</string>
+</resources>

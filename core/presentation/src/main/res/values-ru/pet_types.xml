@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pet_type_other">Другое</string>
+    <string name="pet_type_cats">Кошки</string>
+    <string name="pet_type_dogs">Собаки</string>
+    <string name="pet_type_birds">Птицы</string>
+    <string name="pet_type_fishes">Рыбы</string>
+    <string name="pet_type_rodents">Грызуны</string>
+    <string name="pet_type_reptiles">Рептилии</string>
+    <string name="pet_type_exotic">Экзотические</string>
+</resources>

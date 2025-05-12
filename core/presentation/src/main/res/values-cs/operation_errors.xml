@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="operation_error_network">Žádné připojení k internetu</string>
+    <string name="operation_error_server_unavailable">Server nyní není dostupný</string>
+    <string name="operation_error_bad_request">Špatný požadavek</string>
+    <string name="operation_error_not_found">Nenalezeno</string>
+    <string name="operation_error_internal">Interní chyba serveru</string>
+    <string name="operation_error_server">Chyba serveru</string>
+    <string name="operation_error_unknown">Něco se pokazilo, zkuste to později</string>
+</resources>
