@@ -45,10 +45,10 @@ fun AppNavBar() {
             startRoute = Routes.Feed
         )
         AppNavBarItem(
-            icon = painterResource(R.drawable.profile),
-            label = stringResource(R.string.profile_nav_bar_button),
-            block = Routes.ProfileBlock,
-            startRoute = Routes.Profile
+            icon = painterResource(R.drawable.menu),
+            label = stringResource(R.string.menu_nav_bar_button),
+            block = Routes.MenuBlock,
+            startRoute = Routes.Menu
         )
     }
 }

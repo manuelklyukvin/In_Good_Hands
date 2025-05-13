@@ -6,10 +6,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import manuelklyukvin.in_good_hands.core.ui.navigation.Routes
 
-fun NavGraphBuilder.profileNavGraph(
-    profileScreen: @Composable () -> Unit
+fun NavGraphBuilder.menuNavGraph(
+    menuScreen: @Composable () -> Unit
 ) {
-    navigation<Routes.ProfileBlock>(startDestination = Routes.Profile) {
-        composable<Routes.Profile> { profileScreen() }
+    navigation<Routes.MenuBlock>(startDestination = Routes.Menu) {
+        composable<Routes.Menu> { menuScreen() }
     }
 }

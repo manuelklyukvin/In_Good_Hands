@@ -11,7 +11,7 @@ sealed class Routes {
     data class Post(val postId: Long) : Routes()
 
     @Serializable
-    data object ProfileBlock : Routes()
+    data object MenuBlock : Routes()
     @Serializable
-    data object Profile : Routes()
+    data object Menu : Routes()
 }

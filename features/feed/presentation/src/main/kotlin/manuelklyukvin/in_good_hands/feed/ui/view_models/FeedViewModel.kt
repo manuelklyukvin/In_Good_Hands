@@ -105,8 +105,5 @@ class FeedViewModel(
 
     private fun onRetryButtonClicked() = withErrorState { loadFeedPage() }
 
-    override fun onCleared() {
-        super.onCleared()
-        loadFeedPageJob?.cancel()
-    }
+    override fun onCleared() { loadFeedPageJob?.cancel() }
 }

@@ -34,6 +34,9 @@
             <option value="$PROJECT_DIR$/features/feed/di" />
             <option value="$PROJECT_DIR$/features/feed/domain" />
             <option value="$PROJECT_DIR$/features/feed/presentation" />
+            <option value="$PROJECT_DIR$/features/menu" />
+            <option value="$PROJECT_DIR$/features/menu/di" />
+            <option value="$PROJECT_DIR$/features/menu/presentation" />
             <option value="$PROJECT_DIR$/features/post" />
             <option value="$PROJECT_DIR$/features/post/data" />
             <option value="$PROJECT_DIR$/features/post/di" />

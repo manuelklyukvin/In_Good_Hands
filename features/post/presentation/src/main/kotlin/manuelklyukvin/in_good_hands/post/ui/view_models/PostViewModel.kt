@@ -65,8 +65,5 @@ class PostViewModel(
 
     private fun onRetryButtonClicked() = withErrorState { loadPost() }
 
-    override fun onCleared() {
-        super.onCleared()
-        loadPostJob?.cancel()
-    }
+    override fun onCleared() { loadPostJob?.cancel() }
 }

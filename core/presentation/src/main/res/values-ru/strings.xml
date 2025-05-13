@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="home_nav_bar_button">Главная</string>
-    <string name="profile_nav_bar_button">Профиль</string>
+    <string name="menu_nav_bar_button">Меню</string>
 
     <string name="retry_button">Попробовать снова</string>
 </resources>

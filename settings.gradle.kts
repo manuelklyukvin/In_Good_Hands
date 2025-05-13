@@ -7,6 +7,8 @@ val features = ":features"
 val feed = "$features:feed"
 val post = "$features:post"
 
+val menu = "$features:menu"
+
 include(app)
 include(
     core,
@@ -30,6 +32,12 @@ include(
     domainModule(post),
     dataModule(post),
     diModule(post)
+)
+
+include(
+    menu,
+    presentationModule(menu),
+    diModule(menu)
 )
 
 private fun presentationModule(module: String) = "$module:presentation"

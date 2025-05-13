@@ -8,4 +8,6 @@ object GradleNamespaces {
 
     const val FEED = "$BASE.feed"
     const val POST = "$BASE.post"
+
+    const val MENU = "$BASE.menu"
 }

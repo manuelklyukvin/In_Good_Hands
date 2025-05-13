@@ -6,10 +6,10 @@ import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import manuelklyukvin.in_good_hands.core.ui.components.scaffolds.AppScaffold
 import manuelklyukvin.in_good_hands.core.ui.navigation.graphs.AppNavGraph
 import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
 import manuelklyukvin.in_good_hands.feed.ui.screens.FeedScreen
+import manuelklyukvin.in_good_hands.menu.ui.screens.MenuScreen
 import manuelklyukvin.in_good_hands.post.ui.screens.PostScreen
 
 @Composable
@@ -27,7 +27,7 @@ fun AppScreen() {
                 AppNavGraph(
                     feedScreen = { FeedScreen() },
                     postScreen = { postId -> PostScreen(postId = postId) },
-                    profileScreen = { AppScaffold { } }
+                    menuScreen = { MenuScreen() }
                 )
             }
         }

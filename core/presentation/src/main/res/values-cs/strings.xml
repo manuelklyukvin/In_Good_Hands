@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="home_nav_bar_button">Domov</string>
-    <string name="profile_nav_bar_button">Profil</string>
+    <string name="menu_nav_bar_button">Menu</string>
 
     <string name="retry_button">Zkuste to znovu</string>
 </resources>
