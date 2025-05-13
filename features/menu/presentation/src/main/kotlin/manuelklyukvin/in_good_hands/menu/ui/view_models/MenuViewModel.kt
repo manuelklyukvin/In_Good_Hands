@@ -9,25 +9,25 @@ import manuelklyukvin.in_good_hands.menu.ui.view_models.models.MenuIntent
 import manuelklyukvin.in_good_hands.menu.ui.view_models.models.MenuState
 
 class MenuViewModel : CoreViewModel<MenuState, MenuIntent>(MenuState()) {
-    private var loadUserJob: Job? = null
+    private var loadCurrentUserJob: Job? = null
 
     override fun onIntent(intent: MenuIntent) = when (intent) {
         MenuIntent.OnScreenOpened -> onScreenOpened()
         MenuIntent.OnRetryButtonClicked -> onRetryButtonClicked()
     }
 
-    private fun loadUser() {
+    private fun loadCurrentUser() {
         reduce { copy(viewState = CoreViewState.LOADING) }
-        loadUserJob?.cancel()
+        loadCurrentUserJob?.cancel()
 
-        loadUserJob = viewModelScope.launch {
+        loadCurrentUserJob = viewModelScope.launch {
             reduce { copy(viewState = CoreViewState.CONTENT) }
         }
     }
 
-    private fun onScreenOpened() = withInitialState { loadUser() }
+    private fun onScreenOpened() = withInitialState { loadCurrentUser() }
 
-    private fun onRetryButtonClicked() = withErrorState { loadUser() }
+    private fun onRetryButtonClicked() = withErrorState { loadCurrentUser() }
 
-    override fun onCleared() { loadUserJob?.cancel() }
+    override fun onCleared() { loadCurrentUserJob?.cancel() }
 }

@@ -23,6 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import manuelklyukvin.in_good_hands.core.ui.components.AppButton
 import manuelklyukvin.in_good_hands.core.ui.components.AppCard
 import manuelklyukvin.in_good_hands.core.ui.components.images.AppImage
@@ -86,7 +87,7 @@ private fun FeedPostCard(feedPost: PresentationFeedPost, onIntent: (FeedIntent) 
         AppImage(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(FeedScreenParams.IMAGE_HEIGHT)
+                .height(175.dp)
                 .clip(AppTheme.shapes.roundedCornerShape),
             model = feedPost.imageUrl,
             contentScale = ContentScale.Crop

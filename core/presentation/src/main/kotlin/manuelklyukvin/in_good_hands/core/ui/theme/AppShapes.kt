@@ -17,13 +17,5 @@ data class AppShapes(
     val sizeSmall: Dp,
     val sizeMedium: Dp,
     val sizeLarge: Dp,
-    val sizeExtraLarge: Dp,
-
-    val textLabelHeight: Dp,
-    val textBodyHeight: Dp,
-    val textTitleHeight: Dp,
-    val textHeadlineHeight: Dp,
-    val textWidthSmall: Dp,
-    val textWidthMedium: Dp,
-    val textWidthLarge: Dp
+    val sizeExtraLarge: Dp
 )

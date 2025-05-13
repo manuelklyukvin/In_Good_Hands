@@ -2,8 +2,6 @@ package manuelklyukvin.in_good_hands.feed.ui.screens
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -15,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
-import manuelklyukvin.in_good_hands.core.ui.components.AppCard
 import manuelklyukvin.in_good_hands.core.ui.components.AppLoadingItem
 import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
 import manuelklyukvin.in_good_hands.feed.ui.utils.FeedScreenParams
@@ -41,28 +38,11 @@ internal fun LoadingFeedScreen(state: FeedState) {
 
 @Composable
 private fun LoadingFeedPostCard() {
-    AppCard(
+    AppLoadingItem(
         modifier = Modifier
             .fillMaxWidth()
             .height(FeedScreenParams.POST_HEIGHT)
-    ) {
-        AppLoadingItem(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(FeedScreenParams.IMAGE_HEIGHT)
-        )
-        Column(modifier = Modifier.padding(AppTheme.shapes.paddingSmall)) {
-            AppLoadingItem(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(AppTheme.shapes.textTitleHeight)
-            )
-            Spacer(Modifier.height(AppTheme.shapes.paddingExtraSmall))
-            AppLoadingItem()
-            Spacer(Modifier.weight(1f))
-            AppLoadingItem(height = AppTheme.shapes.textLabelHeight)
-        }
-    }
+    )
 }
 
 @Preview

@@ -7,5 +7,4 @@ internal object FeedScreenParams {
 
     val POST_HEIGHT = 275.dp
     val POST_MIN_WIDTH = 175.dp
-    val IMAGE_HEIGHT = 175.dp
 }

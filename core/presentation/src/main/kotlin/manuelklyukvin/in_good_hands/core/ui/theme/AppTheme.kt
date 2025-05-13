@@ -71,15 +71,7 @@ fun AppTheme(content: @Composable () -> Unit) {
         sizeSmall = 24.dp,
         sizeMedium = 32.dp,
         sizeLarge = 48.dp,
-        sizeExtraLarge = 64.dp,
-
-        textLabelHeight = (typography.label.fontSize.value + 3).dp,
-        textBodyHeight = (typography.body.fontSize.value + 3).dp,
-        textTitleHeight = (typography.title.fontSize.value + 3).dp,
-        textHeadlineHeight = (typography.headline.fontSize.value + 3).dp,
-        textWidthSmall = 64.dp,
-        textWidthMedium = 128.dp,
-        textWidthLarge = 256.dp
+        sizeExtraLarge = 64.dp
     )
 
     CompositionLocalProvider(
