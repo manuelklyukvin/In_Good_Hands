@@ -8,7 +8,7 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 
 private const val MODULE = ":features:post"
 
-fun DependencyHandler.postPresentation() = presentationModule(MODULE)
-fun DependencyHandler.postDomain() = domainModule(MODULE)
 fun DependencyHandler.postData() = dataModule(MODULE)
+fun DependencyHandler.postDomain() = domainModule(MODULE)
+fun DependencyHandler.postPresentation() = presentationModule(MODULE)
 fun DependencyHandler.postDi() = diModule(MODULE)

@@ -42,8 +42,8 @@ class PresentationGradlePlugin : CoreGradlePlugin() {
             androidx()
             koin()
 
-            corePresentation()
             coreDomain()
+            corePresentation()
         }
     }
 }

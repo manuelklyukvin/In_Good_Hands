@@ -34,9 +34,9 @@ class DiGradlePlugin : CoreGradlePlugin() {
             koin()
             retrofit()
 
-            corePresentation()
-            coreDomain()
             coreData()
+            coreDomain()
+            corePresentation()
         }
     }
 

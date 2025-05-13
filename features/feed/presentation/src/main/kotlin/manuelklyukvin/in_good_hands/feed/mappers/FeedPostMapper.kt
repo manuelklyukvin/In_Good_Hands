@@ -9,11 +9,13 @@ class FeedPostMapper(
     private val getPostImageUrlUseCase: GetPostImageUrlUseCase,
     private val petTypeMapper: PetTypeMapper
 ) {
-    fun toPresentation(feedPost: DomainFeedPost) = PresentationFeedPost(
-        id = feedPost.id,
-        imageUrl = getPostImageUrlUseCase(feedPost.imageName),
-        title = feedPost.title,
-        petTypeResId = petTypeMapper.toResId(feedPost.petTypeId),
-        city = feedPost.city
-    )
+    fun toPresentation(domainFeedPost: DomainFeedPost) = with(domainFeedPost) {
+        PresentationFeedPost(
+            id = id,
+            imageUrl = getPostImageUrlUseCase(imageName),
+            title = title,
+            petTypeResId = petTypeMapper.toResId(petTypeId),
+            city = city
+        )
+    }
 }

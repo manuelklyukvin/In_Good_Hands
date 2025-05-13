@@ -4,23 +4,23 @@ import android.content.res.Configuration
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
 
 @Composable
-fun AppScaffold(
-    topBar: @Composable () -> Unit = { AppTopBar() },
-    bottomBar: @Composable () -> Unit = { AppNavBar() },
-    content: @Composable () -> Unit
-) {
+fun AppScaffold(content: @Composable () -> Unit) {
     Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        containerColor = AppTheme.colorScheme.background,
-        topBar = topBar,
-        bottomBar = bottomBar
+        modifier = Modifier
+            .fillMaxSize()
+            .systemBarsPadding(),
+        containerColor = Color.Transparent,
+        bottomBar = { AppNavBar() }
     ) { paddingValues ->
         Box(modifier = Modifier.padding(paddingValues)) {
             content()
@@ -43,6 +43,8 @@ private fun DarkAppScaffoldPreview() {
 @Composable
 private fun AppScaffoldPreview() {
     AppTheme {
-        AppScaffold { }
+        Surface(color = AppTheme.colorScheme.background) {
+            AppScaffold { }
+        }
     }
 }

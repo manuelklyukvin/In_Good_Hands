@@ -12,35 +12,37 @@ val menu = "$features:menu"
 include(app)
 include(
     core,
-    presentationModule(core),
-    domainModule(core),
     dataModule(core),
+    domainModule(core),
+    presentationModule(core),
     diModule(core)
 )
 include(features)
 
 include(
     feed,
-    presentationModule(feed),
-    domainModule(feed),
     dataModule(feed),
+    domainModule(feed),
+    presentationModule(feed),
     diModule(feed)
 )
 include(
     post,
-    presentationModule(post),
-    domainModule(post),
     dataModule(post),
+    domainModule(post),
+    presentationModule(post),
     diModule(post)
 )
 
 include(
     menu,
+    dataModule(menu),
+    domainModule(menu),
     presentationModule(menu),
     diModule(menu)
 )
 
-private fun presentationModule(module: String) = "$module:presentation"
-private fun domainModule(module: String) = "$module:domain"
 private fun dataModule(module: String) = "$module:data"
+private fun domainModule(module: String) = "$module:domain"
+private fun presentationModule(module: String) = "$module:presentation"
 private fun diModule(module: String) = "$module:di"

@@ -8,7 +8,7 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 
 private const val MODULE = ":features:feed"
 
-fun DependencyHandler.feedPresentation() = presentationModule(MODULE)
-fun DependencyHandler.feedDomain() = domainModule(MODULE)
 fun DependencyHandler.feedData() = dataModule(MODULE)
+fun DependencyHandler.feedDomain() = domainModule(MODULE)
+fun DependencyHandler.feedPresentation() = presentationModule(MODULE)
 fun DependencyHandler.feedDi() = diModule(MODULE)

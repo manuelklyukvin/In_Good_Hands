@@ -78,7 +78,6 @@ private fun FeedPostCard(feedPost: PresentationFeedPost, onIntent: (FeedIntent) 
 
     AppCard(
         modifier = Modifier
-            .fillMaxWidth()
             .height(FeedScreenParams.POST_HEIGHT)
             .noIndicationClickable {
                 onIntent(FeedIntent.OnPostClicked(navigationState, feedPost.id))
@@ -112,7 +111,6 @@ private fun FeedPostCard(feedPost: PresentationFeedPost, onIntent: (FeedIntent) 
 @Composable
 private fun PageButtons(state: FeedState, onIntent: (FeedIntent) -> Unit) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingSmall),
         verticalAlignment = Alignment.CenterVertically
     ) {

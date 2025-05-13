@@ -33,8 +33,8 @@ class DataGradlePlugin : CoreGradlePlugin() {
             androidx()
             retrofit()
 
-            coreDomain()
             coreData()
+            coreDomain()
         }
     }
 }

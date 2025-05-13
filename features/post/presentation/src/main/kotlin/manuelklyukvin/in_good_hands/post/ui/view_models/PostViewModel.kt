@@ -55,9 +55,7 @@ class PostViewModel(
 
     private fun onScreenOpened() = withInitialState { loadPost() }
 
-    private fun onUserClicked(navigationState: NavigationState) = withContentState {
-        TODO()
-    }
+    private fun onUserClicked(navigationState: NavigationState) = withContentState { }
 
     private fun onAddressClicked() = withContentState {
         state.value.post?.let { openMapUseCase(it.address) }

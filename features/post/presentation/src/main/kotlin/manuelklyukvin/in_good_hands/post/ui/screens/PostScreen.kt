@@ -1,11 +1,16 @@
 package manuelklyukvin.in_good_hands.post.ui.screens
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import manuelklyukvin.in_good_hands.core.ui.components.scaffolds.AppScaffold
+import manuelklyukvin.in_good_hands.core.ui.components.scaffolds.AppTopBar
 import manuelklyukvin.in_good_hands.core.ui.screens.ErrorScreen
+import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
 import manuelklyukvin.in_good_hands.core.ui.view_models.models.CoreViewState
 import manuelklyukvin.in_good_hands.post.ui.view_models.PostViewModel
 import manuelklyukvin.in_good_hands.post.ui.view_models.models.PostIntent
@@ -24,7 +29,12 @@ fun PostScreen(
         onIntent(PostIntent.OnScreenOpened)
     }
 
-    AppScaffold {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(AppTheme.colorScheme.background)
+    ) {
+        AppTopBar()
         when (state.viewState) {
             CoreViewState.INITIAL -> Unit
             CoreViewState.LOADING -> LoadingPostScreen()

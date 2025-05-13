@@ -58,8 +58,8 @@ internal fun ContentPostScreen(state: PostState, onIntent: (PostIntent) -> Unit)
         verticalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingSmall)
     ) {
         item { ImagePager(post) }
-        item { PostInfo(post) }
-        item { UserInfo(post, onIntent) }
+        item { PostBlock(post) }
+        item { UserBlock(post, onIntent) }
     }
 }
 
@@ -103,14 +103,14 @@ private fun ImagePagerCounter(pagerState: PagerState) {
 }
 
 @Composable
-private fun PostInfo(post: PresentationPost) {
+private fun PostBlock(post: PresentationPost) {
     AppCard(
         modifier = Modifier.fillMaxWidth(),
         areDefaultPaddingsEnabled = true
     ) {
         Title(post)
         Spacer(Modifier.height(AppTheme.shapes.paddingSmall))
-        PetInfo(post.pet)
+        PetBlock(post.pet)
     }
 }
 
@@ -127,7 +127,7 @@ private fun Title(post: PresentationPost) {
 }
 
 @Composable
-private fun PetInfo(pet: PresentationPet) {
+private fun PetBlock(pet: PresentationPet) {
     Column(verticalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingExtraSmall)) {
         AppLineText(
             text = stringResource(R.string.pet_info_label),
@@ -143,7 +143,7 @@ private fun PetInfo(pet: PresentationPet) {
 }
 
 @Composable
-private fun UserInfo(post: PresentationPost, onIntent: (PostIntent) -> Unit) {
+private fun UserBlock(post: PresentationPost, onIntent: (PostIntent) -> Unit) {
     val navigationState = LocalNavigationState.current
 
     AppCard(
@@ -156,13 +156,13 @@ private fun UserInfo(post: PresentationPost, onIntent: (PostIntent) -> Unit) {
             color = AppTheme.colorScheme.primary
         )
         Spacer(Modifier.height(AppTheme.shapes.paddingExtraSmall))
-        UserInfoLine(
+        UserBlockLine(
             model = post.user.avatarUrl ?: painterResource(CoreR.drawable.avatar),
             text = post.user.name,
             onClick = { onIntent(PostIntent.OnUserClicked(navigationState)) }
         )
         Spacer(Modifier.height(AppTheme.shapes.paddingExtraSmall))
-        UserInfoLine(
+        UserBlockLine(
             model = painterResource(R.drawable.address),
             text = post.address,
             onClick = { onIntent(PostIntent.OnAddressClicked) }
@@ -178,7 +178,7 @@ private fun UserInfo(post: PresentationPost, onIntent: (PostIntent) -> Unit) {
 }
 
 @Composable
-private fun UserInfoLine(
+private fun UserBlockLine(
     model: Any,
     text: String,
     onClick: () -> Unit
@@ -233,7 +233,7 @@ private fun ContentPostScreenPreview() {
                         user = PresentationUser(
                             id = 0,
                             avatarUrl = null,
-                            name = "user"
+                            name = "User"
                         ),
                         title = "Title",
                         description = "Description",

@@ -27,8 +27,8 @@ internal fun LoadingPostScreen() {
         verticalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingSmall)
     ) {
         LoadingImagePager()
-        LoadingPostInfo()
-        LoadingUserInfo()
+        LoadingPostBlock()
+        LoadingUserBlock()
     }
 }
 
@@ -42,7 +42,7 @@ private fun LoadingImagePager() {
 }
 
 @Composable
-private fun LoadingPostInfo() {
+private fun LoadingPostBlock() {
     AppLoadingItem(
         modifier = Modifier
             .fillMaxWidth()
@@ -51,7 +51,7 @@ private fun LoadingPostInfo() {
 }
 
 @Composable
-private fun LoadingUserInfo() {
+private fun LoadingUserBlock() {
     AppLoadingItem(
         modifier = Modifier
             .fillMaxWidth()

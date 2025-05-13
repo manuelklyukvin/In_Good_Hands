@@ -1,7 +1,6 @@
 package manuelklyukvin.in_good_hands.core.ui.components.scaffolds
 
 import android.content.res.Configuration
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -33,7 +33,6 @@ fun AppNavBar() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(AppTheme.colorScheme.background)
             .padding(AppTheme.shapes.screenPadding),
         horizontalArrangement = Arrangement.SpaceAround,
         verticalAlignment = Alignment.CenterVertically
@@ -110,6 +109,8 @@ private fun DarkAppNavBarPreview() {
 @Composable
 private fun AppNavBarPreview() {
     AppTheme {
-        AppNavBar()
+        Surface(color = AppTheme.colorScheme.background) {
+            AppNavBar()
+        }
     }
 }

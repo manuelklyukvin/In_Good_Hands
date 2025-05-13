@@ -20,10 +20,9 @@ internal fun CoreTextField(
 ) {
     maxLength?.let {
         val valueLength = state.text.length
+
         LaunchedEffect(valueLength) {
-            if (valueLength > maxLength) {
-                state.edit { delete(maxLength, valueLength) }
-            }
+            if (valueLength > maxLength) state.edit { delete(maxLength, valueLength) }
         }
     }
 

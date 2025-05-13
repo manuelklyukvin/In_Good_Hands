@@ -15,7 +15,7 @@ android {
 }
 
 dependencies {
-    postPresentation()
-    postDomain()
     postData()
+    postDomain()
+    postPresentation()
 }

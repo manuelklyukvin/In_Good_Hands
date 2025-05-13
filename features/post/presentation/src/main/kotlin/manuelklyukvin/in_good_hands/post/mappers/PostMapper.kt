@@ -19,24 +19,26 @@ class PostMapper(
     private val petAgeMapper: PetAgeMapper,
     private val getFormatedDateUseCase: GetFormatedDateUseCase
 ) {
-    fun toPresentation(domainPost: DomainPost) = PresentationPost(
-        id = domainPost.id,
-        imageUrls = domainPost.imageNames.map { getPostImageUrlUseCase(it) },
-        user = PresentationUser(
-            id = domainPost.user.id,
-            avatarUrl = domainPost.user.avatarName?.let { getAvatarUrlUseCase(it) },
-            name = domainPost.user.name
-        ),
-        title = domainPost.title,
-        description = domainPost.description,
-        pet = PresentationPet(
-            nickname = domainPost.pet.nickname,
-            typeResId = petTypeMapper.toResId(domainPost.pet.typeId),
-            genderResId = petGenderMapper.toResId(domainPost.pet.genderId),
-            ageResId = petAgeMapper.toResId(domainPost.pet.ageId),
-            breed = domainPost.pet.breed
-        ),
-        address = domainPost.address,
-        publicationDate = getFormatedDateUseCase(domainPost.publicationDate)
-    )
+    fun toPresentation(domainPost: DomainPost) = with(domainPost) {
+        PresentationPost(
+            id = id,
+            imageUrls = imageNames.map { getPostImageUrlUseCase(it) },
+            user = PresentationUser(
+                id = user.id,
+                avatarUrl = user.avatarName?.let { getAvatarUrlUseCase(it) },
+                name = user.name
+            ),
+            title = title,
+            description = description,
+            pet = PresentationPet(
+                nickname = pet.nickname,
+                typeResId = petTypeMapper.toResId(pet.typeId),
+                genderResId = petGenderMapper.toResId(pet.genderId),
+                ageResId = petAgeMapper.toResId(pet.ageId),
+                breed = pet.breed
+            ),
+            address = address,
+            publicationDate = getFormatedDateUseCase(publicationDate)
+        )
+    }
 }

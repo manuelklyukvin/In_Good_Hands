@@ -15,7 +15,7 @@ android {
 }
 
 dependencies {
-    feedPresentation()
-    feedDomain()
     feedData()
+    feedDomain()
+    feedPresentation()
 }
