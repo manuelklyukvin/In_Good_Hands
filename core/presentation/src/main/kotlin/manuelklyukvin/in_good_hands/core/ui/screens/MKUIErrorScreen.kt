@@ -15,28 +15,28 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import manuelklyukvin.in_good_hands.core.R
-import manuelklyukvin.in_good_hands.core.ui.components.AppButton
-import manuelklyukvin.in_good_hands.core.ui.components.texts.AppText
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.components.buttons.MKUIButton
+import manuelklyukvin.in_good_hands.core.ui.components.texts.MKUIText
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 
 @Composable
-fun ErrorScreen(error: String?, onRetryButtonClicked: () -> Unit) {
+fun MKUIErrorScreen(error: String?, onRetryButtonClicked: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(AppTheme.colorScheme.background)
-            .padding(AppTheme.shapes.paddingExtraLarge),
+            .background(MKUITheme.colorScheme.background)
+            .padding(MKUITheme.shapes.paddingExtraLarge),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        AppText(
+        MKUIText(
             text = error ?: stringResource(R.string.operation_error_unknown),
-            style = AppTheme.typography.title,
-            color = AppTheme.colorScheme.error,
+            style = MKUITheme.typography.title,
+            color = MKUITheme.colorScheme.error,
             textAlign = TextAlign.Center
         )
-        Spacer(Modifier.height(AppTheme.shapes.paddingExtraSmall))
-        AppButton(
+        Spacer(Modifier.height(MKUITheme.shapes.paddingExtraSmall))
+        MKUIButton(
             text = stringResource(R.string.retry_button),
             onClick = onRetryButtonClicked
         )
@@ -45,20 +45,20 @@ fun ErrorScreen(error: String?, onRetryButtonClicked: () -> Unit) {
 
 @Preview
 @Composable
-private fun LightErrorScreenPreview() {
-    ErrorScreenPreview()
+private fun LightMKUIErrorScreenPreview() {
+    MKUIErrorScreenPreview()
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun DarkErrorScreenPreview() {
-    ErrorScreenPreview()
+private fun DarkMKUIErrorScreenPreview() {
+    MKUIErrorScreenPreview()
 }
 
 @Composable
-private fun ErrorScreenPreview() {
-    AppTheme {
-        ErrorScreen(
+private fun MKUIErrorScreenPreview() {
+    MKUITheme {
+        MKUIErrorScreen(
             error = null,
             onRetryButtonClicked = { }
         )

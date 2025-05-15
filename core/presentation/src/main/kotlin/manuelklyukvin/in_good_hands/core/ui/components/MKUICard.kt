@@ -10,11 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import manuelklyukvin.in_good_hands.core.ui.components.texts.AppLineText
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.components.texts.MKUILineText
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 
 @Composable
-fun AppCard(
+fun MKUICard(
     modifier: Modifier = Modifier,
     verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
@@ -24,12 +24,12 @@ fun AppCard(
     Column(
         modifier = modifier
             .background(
-                color = AppTheme.colorScheme.surface,
-                shape = AppTheme.shapes.roundedCornerShape
+                color = MKUITheme.colorScheme.surface,
+                shape = MKUITheme.shapes.roundedCornerShape
             )
             .let {
                 if (areDefaultPaddingsEnabled) {
-                    it.padding(AppTheme.shapes.paddingMedium)
+                    it.padding(MKUITheme.shapes.paddingMedium)
                 } else it
             },
         verticalArrangement = verticalArrangement,
@@ -40,21 +40,21 @@ fun AppCard(
 
 @Preview
 @Composable
-private fun LightAppCardPreview() {
-    AppCardPreview()
+private fun LightMKUICardPreview() {
+    MKUICardPreview()
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun DarkAppCardPreview() {
-    AppCardPreview()
+private fun DarkMKUICardPreview() {
+    MKUICardPreview()
 }
 
 @Composable
-private fun AppCardPreview() {
-    AppTheme {
-        AppCard(areDefaultPaddingsEnabled = true) {
-            AppLineText(text = "Preview")
+private fun MKUICardPreview() {
+    MKUITheme {
+        MKUICard(areDefaultPaddingsEnabled = true) {
+            MKUILineText(text = "Preview")
         }
     }
 }

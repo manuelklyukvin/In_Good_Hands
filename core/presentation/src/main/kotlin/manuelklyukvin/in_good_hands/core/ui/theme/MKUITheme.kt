@@ -14,13 +14,13 @@ import manuelklyukvin.in_good_hands.core.ui.navigation.rememberNavigationState
 import manuelklyukvin.in_good_hands.core.ui.theme.resources.Fonts
 
 val LocalNavigationState = staticCompositionLocalOf<NavigationState> { error("No NavigationState provided") }
-private val localColorScheme = staticCompositionLocalOf<AppColorScheme> { error("No AppColorScheme provided") }
-private val localShapes = staticCompositionLocalOf<AppShapes> { error("No AppShapes provided") }
-private val localTypography = staticCompositionLocalOf<AppTypography> { error("No AppTypography provided") }
+private val localColorScheme = staticCompositionLocalOf<MKUIColorScheme> { error("No AppColorScheme provided") }
+private val localShapes = staticCompositionLocalOf<MKUIShapes> { error("No AppShapes provided") }
+private val localTypography = staticCompositionLocalOf<MKUITypography> { error("No AppTypography provided") }
 
 @Composable
-fun AppTheme(content: @Composable () -> Unit) {
-    val colorScheme = AppColorScheme(
+fun MKUITheme(content: @Composable () -> Unit) {
+    val colorScheme = MKUIColorScheme(
         primary = colorResource(R.color.primary),
         onPrimary = colorResource(R.color.on_primary),
         secondary = colorResource(R.color.secondary),
@@ -30,11 +30,10 @@ fun AppTheme(content: @Composable () -> Unit) {
         onBackground = colorResource(R.color.on_background),
         surface = colorResource(R.color.surface),
         onSurface = colorResource(R.color.on_surface),
-        outline = colorResource(R.color.outline),
-        transparentContainer = colorResource(R.color.transparent_container)
+        outline = colorResource(R.color.outline)
     )
 
-    val typography = AppTypography(
+    val typography = MKUITypography(
         label = TextStyle(
             fontFamily = Fonts.ptSansCaption,
             color = colorScheme.onSurface,
@@ -57,7 +56,7 @@ fun AppTheme(content: @Composable () -> Unit) {
         )
     )
 
-    val shapes = AppShapes(
+    val shapes = MKUIShapes(
         screenPadding = 12.dp,
         roundedCornerShape = RoundedCornerShape(12.dp),
 
@@ -83,7 +82,7 @@ fun AppTheme(content: @Composable () -> Unit) {
     )
 }
 
-object AppTheme {
+object MKUITheme {
     val colorScheme @Composable get() = localColorScheme.current
     val shapes @Composable get() = localShapes.current
     val typography @Composable get() = localTypography.current

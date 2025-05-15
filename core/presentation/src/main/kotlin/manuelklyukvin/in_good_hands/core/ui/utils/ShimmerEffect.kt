@@ -11,9 +11,9 @@ import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.graphicsLayer
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 
-fun Modifier.shimmerEffect() = composed {
+internal fun Modifier.shimmerEffect() = composed {
     val transition = rememberInfiniteTransition()
     val shimmerTransition by transition.animateFloat(
         initialValue = -1f,
@@ -22,9 +22,9 @@ fun Modifier.shimmerEffect() = composed {
     )
 
     val shimmerColors = listOf(
-        AppTheme.colorScheme.surface,
-        AppTheme.colorScheme.background,
-        AppTheme.colorScheme.surface
+        MKUITheme.colorScheme.surface,
+        MKUITheme.colorScheme.background,
+        MKUITheme.colorScheme.surface
     )
 
     graphicsLayer().drawWithCache {

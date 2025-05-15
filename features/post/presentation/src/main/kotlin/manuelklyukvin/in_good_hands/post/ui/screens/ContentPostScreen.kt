@@ -29,13 +29,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import manuelklyukvin.in_good_hands.core.ui.components.AppCard
-import manuelklyukvin.in_good_hands.core.ui.components.images.AppIcon
-import manuelklyukvin.in_good_hands.core.ui.components.images.AppImage
-import manuelklyukvin.in_good_hands.core.ui.components.texts.AppLineText
-import manuelklyukvin.in_good_hands.core.ui.components.texts.AppText
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.components.MKUICard
+import manuelklyukvin.in_good_hands.core.ui.components.images.MKUIIcon
+import manuelklyukvin.in_good_hands.core.ui.components.images.MKUIImage
+import manuelklyukvin.in_good_hands.core.ui.components.texts.MKUILineText
+import manuelklyukvin.in_good_hands.core.ui.components.texts.MKUIText
 import manuelklyukvin.in_good_hands.core.ui.theme.LocalNavigationState
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 import manuelklyukvin.in_good_hands.core.ui.utils.noIndicationClickable
 import manuelklyukvin.in_good_hands.post.R
 import manuelklyukvin.in_good_hands.post.models.PresentationPet
@@ -53,9 +53,9 @@ internal fun ContentPostScreen(state: PostState, onIntent: (PostIntent) -> Unit)
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = AppTheme.shapes.screenPadding)
-            .clip(AppTheme.shapes.roundedCornerShape),
-        verticalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingSmall)
+            .padding(horizontal = MKUITheme.shapes.screenPadding)
+            .clip(MKUITheme.shapes.roundedCornerShape),
+        verticalArrangement = Arrangement.spacedBy(MKUITheme.shapes.paddingSmall)
     ) {
         item { ImagePager(post) }
         item { PostBlock(post) }
@@ -71,12 +71,12 @@ private fun ImagePager(post: PresentationPost) {
         modifier = Modifier
             .fillMaxWidth()
             .height(PostScreenParams.IMAGE_HEIGHT)
-            .clip(AppTheme.shapes.roundedCornerShape)
-            .background(AppTheme.colorScheme.surface),
+            .clip(MKUITheme.shapes.roundedCornerShape)
+            .background(MKUITheme.colorScheme.surface),
         contentAlignment = Alignment.BottomCenter
     ) {
         HorizontalPager(pagerState) { page ->
-            AppImage(
+            MKUIImage(
                 modifier = Modifier.fillMaxSize(),
                 model = post.imageUrls[page]
             )
@@ -93,52 +93,52 @@ private fun ImagePagerCounter(pagerState: PagerState) {
 
     Box(
         modifier = Modifier
-            .padding(bottom = AppTheme.shapes.paddingSmall)
-            .clip(AppTheme.shapes.roundedCornerShape)
-            .background(AppTheme.colorScheme.transparentContainer)
-            .padding(horizontal = AppTheme.shapes.paddingSmall)
+            .padding(bottom = MKUITheme.shapes.paddingSmall)
+            .clip(MKUITheme.shapes.roundedCornerShape)
+            .background(MKUITheme.colorScheme.background.copy(alpha = 0.5f))
+            .padding(horizontal = MKUITheme.shapes.paddingSmall)
     ) {
-        AppLineText(text = "$currentPage ${stringResource(R.string.image_pager_counter)} ${pagerState.pageCount}")
+        MKUILineText(text = "$currentPage ${stringResource(R.string.image_pager_counter)} ${pagerState.pageCount}")
     }
 }
 
 @Composable
 private fun PostBlock(post: PresentationPost) {
-    AppCard(
+    MKUICard(
         modifier = Modifier.fillMaxWidth(),
         areDefaultPaddingsEnabled = true
     ) {
         Title(post)
-        Spacer(Modifier.height(AppTheme.shapes.paddingSmall))
+        Spacer(Modifier.height(MKUITheme.shapes.paddingSmall))
         PetBlock(post.pet)
     }
 }
 
 @Composable
 private fun Title(post: PresentationPost) {
-    Column(verticalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingExtraSmall)) {
-        AppText(
+    Column(verticalArrangement = Arrangement.spacedBy(MKUITheme.shapes.paddingExtraSmall)) {
+        MKUIText(
             text = post.title,
-            style = AppTheme.typography.headline,
-            color = AppTheme.colorScheme.primary
+            style = MKUITheme.typography.headline,
+            color = MKUITheme.colorScheme.primary
         )
-        post.description?.let { AppText(text = post.description) }
+        post.description?.let { MKUIText(text = post.description) }
     }
 }
 
 @Composable
 private fun PetBlock(pet: PresentationPet) {
-    Column(verticalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingExtraSmall)) {
-        AppLineText(
+    Column(verticalArrangement = Arrangement.spacedBy(MKUITheme.shapes.paddingExtraSmall)) {
+        MKUILineText(
             text = stringResource(R.string.pet_info_label),
-            style = AppTheme.typography.title,
-            color = AppTheme.colorScheme.primary
+            style = MKUITheme.typography.title,
+            color = MKUITheme.colorScheme.primary
         )
-        AppLineText(text = "${stringResource(R.string.pet_nickname_label)}: ${pet.nickname ?: stringResource(R.string.pet_default_nickname)}")
-        AppLineText(text = "${stringResource(R.string.pet_type_label)}: ${stringResource(pet.typeResId)}")
-        AppLineText(text = "${stringResource(R.string.pet_gender_label)}: ${stringResource(pet.genderResId)}")
-        AppLineText(text = "${stringResource(R.string.pet_age_label)}: ${stringResource(pet.ageResId)}")
-        AppLineText(text = "${stringResource(R.string.pet_breed_label)}: ${pet.breed ?: stringResource(R.string.pet_default_nickname)}")
+        MKUILineText(text = "${stringResource(R.string.pet_nickname_label)}: ${pet.nickname ?: stringResource(R.string.pet_default_nickname)}")
+        MKUILineText(text = "${stringResource(R.string.pet_type_label)}: ${stringResource(pet.typeResId)}")
+        MKUILineText(text = "${stringResource(R.string.pet_gender_label)}: ${stringResource(pet.genderResId)}")
+        MKUILineText(text = "${stringResource(R.string.pet_age_label)}: ${stringResource(pet.ageResId)}")
+        MKUILineText(text = "${stringResource(R.string.pet_breed_label)}: ${pet.breed ?: stringResource(R.string.pet_default_nickname)}")
     }
 }
 
@@ -146,32 +146,32 @@ private fun PetBlock(pet: PresentationPet) {
 private fun UserBlock(post: PresentationPost, onIntent: (PostIntent) -> Unit) {
     val navigationState = LocalNavigationState.current
 
-    AppCard(
+    MKUICard(
         modifier = Modifier.fillMaxWidth(),
         areDefaultPaddingsEnabled = true
     ) {
-        AppLineText(
+        MKUILineText(
             text = stringResource(R.string.user_info_label),
-            style = AppTheme.typography.title,
-            color = AppTheme.colorScheme.primary
+            style = MKUITheme.typography.title,
+            color = MKUITheme.colorScheme.primary
         )
-        Spacer(Modifier.height(AppTheme.shapes.paddingExtraSmall))
+        Spacer(Modifier.height(MKUITheme.shapes.paddingExtraSmall))
         UserBlockLine(
             model = post.user.avatarUrl ?: painterResource(CoreR.drawable.avatar),
             text = post.user.name,
             onClick = { onIntent(PostIntent.OnUserClicked(navigationState)) }
         )
-        Spacer(Modifier.height(AppTheme.shapes.paddingExtraSmall))
+        Spacer(Modifier.height(MKUITheme.shapes.paddingExtraSmall))
         UserBlockLine(
             model = painterResource(R.drawable.address),
             text = post.address,
             onClick = { onIntent(PostIntent.OnAddressClicked) }
         )
-        AppLineText(
+        MKUILineText(
             modifier = Modifier.fillMaxWidth(),
             text = post.publicationDate,
-            style = AppTheme.typography.label,
-            color = AppTheme.colorScheme.outline,
+            style = MKUITheme.typography.label,
+            color = MKUITheme.colorScheme.outline,
             textAlign = TextAlign.End
         )
     }
@@ -188,21 +188,21 @@ private fun UserBlockLine(
         verticalAlignment = Alignment.CenterVertically
     ) {
         if (model is Painter) {
-            AppIcon(
-                modifier = Modifier.size(AppTheme.shapes.sizeMedium),
+            MKUIIcon(
+                modifier = Modifier.size(MKUITheme.shapes.sizeMedium),
                 model = model
             )
         } else {
-            AppImage(
+            MKUIImage(
                 modifier = Modifier
-                    .size(AppTheme.shapes.sizeMedium)
+                    .size(MKUITheme.shapes.sizeMedium)
                     .clip(RoundedCornerShape(100)),
                 model = model,
                 contentScale = ContentScale.Crop
             )
         }
-        Spacer(Modifier.width(AppTheme.shapes.paddingSmall))
-        AppText(text = text)
+        Spacer(Modifier.width(MKUITheme.shapes.paddingSmall))
+        MKUIText(text = text)
     }
 }
 
@@ -220,10 +220,10 @@ private fun DarkContentPostScreenPreview() {
 
 @Composable
 private fun ContentPostScreenPreview() {
-    AppTheme {
+    MKUITheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = AppTheme.colorScheme.background
+            color = MKUITheme.colorScheme.background
         ) {
             ContentPostScreen(
                 state = PostState(

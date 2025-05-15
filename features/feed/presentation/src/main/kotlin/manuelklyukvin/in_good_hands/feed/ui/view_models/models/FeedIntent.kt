@@ -2,9 +2,9 @@ package manuelklyukvin.in_good_hands.feed.ui.view_models.models
 
 import androidx.compose.ui.unit.Dp
 import manuelklyukvin.in_good_hands.core.ui.navigation.NavigationState
-import manuelklyukvin.in_good_hands.core.ui.view_models.models.CoreIntent
+import manuelklyukvin.in_good_hands.core.ui.view_models.models.MKUIIntent
 
-sealed class FeedIntent : CoreIntent() {
+sealed class FeedIntent : MKUIIntent() {
     data class OnScreenWidthUpdated(val screenWidth: Dp, val spacing: Dp) : FeedIntent()
     data object OnScreenOpened : FeedIntent()
 

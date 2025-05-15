@@ -31,13 +31,13 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import manuelklyukvin.in_good_hands.core.R
-import manuelklyukvin.in_good_hands.core.ui.components.AppCard
-import manuelklyukvin.in_good_hands.core.ui.components.images.AppIcon
-import manuelklyukvin.in_good_hands.core.ui.components.texts.AppLineText
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.components.MKUICard
+import manuelklyukvin.in_good_hands.core.ui.components.images.MKUIIcon
+import manuelklyukvin.in_good_hands.core.ui.components.texts.MKUILineText
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 
 @Composable
-fun AppPasswordField(
+fun MKUIPasswordField(
     modifier: Modifier = Modifier,
     state: TextFieldState,
     isPrimary: Boolean = true,
@@ -75,10 +75,10 @@ private fun InnerTextField(
 
     if (isContentVisible) {
         textObfuscationMode = TextObfuscationMode.Visible
-        showPasswordButtonTint = AppTheme.colorScheme.primary
+        showPasswordButtonTint = MKUITheme.colorScheme.primary
     } else {
         textObfuscationMode = TextObfuscationMode.RevealLastTyped
-        showPasswordButtonTint = AppTheme.colorScheme.onSurface
+        showPasswordButtonTint = MKUITheme.colorScheme.onSurface
     }
 
     BasicSecureTextField(
@@ -86,33 +86,33 @@ private fun InnerTextField(
             .fillMaxWidth()
             .background(
                 color = if (isPrimary) {
-                    AppTheme.colorScheme.surface
+                    MKUITheme.colorScheme.surface
                 } else {
-                    AppTheme.colorScheme.background
+                    MKUITheme.colorScheme.background
                 },
-                shape = AppTheme.shapes.roundedCornerShape
+                shape = MKUITheme.shapes.roundedCornerShape
             )
             .let {
                 if (error != null) {
                     it.border(
                         width = 1.dp,
-                        color = AppTheme.colorScheme.error,
-                        shape = AppTheme.shapes.roundedCornerShape
+                        color = MKUITheme.colorScheme.error,
+                        shape = MKUITheme.shapes.roundedCornerShape
                     )
                 } else it
             }
-            .padding(AppTheme.shapes.paddingMedium),
+            .padding(MKUITheme.shapes.paddingMedium),
         state = state,
-        textStyle = AppTheme.typography.body.copy(
+        textStyle = MKUITheme.typography.body.copy(
             color = if (isPrimary) {
-                AppTheme.colorScheme.onSurface
+                MKUITheme.colorScheme.onSurface
             } else {
-                AppTheme.colorScheme.onBackground
+                MKUITheme.colorScheme.onBackground
             }
         ),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
         textObfuscationMode = textObfuscationMode,
-        cursorBrush = SolidColor(AppTheme.colorScheme.primary),
+        cursorBrush = SolidColor(MKUITheme.colorScheme.primary),
         decorator = { inputField ->
             Decorator(
                 state = state,
@@ -137,18 +137,18 @@ private fun Decorator(
         Box(modifier = Modifier.weight(1f)) {
             inputField()
             if (state.text.isEmpty() && hint != null) {
-                AppLineText(
+                MKUILineText(
                     text = hint,
-                    color = AppTheme.colorScheme.outline
+                    color = MKUITheme.colorScheme.outline
                 )
             }
         }
-        Spacer(Modifier.width(AppTheme.shapes.paddingMedium))
+        Spacer(Modifier.width(MKUITheme.shapes.paddingMedium))
         IconButton(
-            modifier = Modifier.size(AppTheme.shapes.sizeExtraSmall),
+            modifier = Modifier.size(MKUITheme.shapes.sizeExtraSmall),
             onClick = onShowPasswordButtonClicked
         ) {
-            AppIcon(
+            MKUIIcon(
                 modifier = Modifier.fillMaxSize(),
                 model = painterResource(R.drawable.eye),
                 tint = showPasswordButtonTint
@@ -159,42 +159,42 @@ private fun Decorator(
 
 @Preview
 @Composable
-private fun PrimaryLightAppPasswordFieldPreview() {
-    PrimaryAppPasswordFieldPreview()
+private fun PrimaryLightMKUIPasswordFieldPreview() {
+    PrimaryMKUIPasswordFieldPreview()
 }
 
 @Preview
 @Composable
-private fun SecondaryLightAppPasswordFieldPreview() {
-    SecondaryAppPasswordFieldPreview()
+private fun SecondaryLightMKUIPasswordFieldPreview() {
+    SecondaryMKUIPasswordFieldPreview()
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun PrimaryDarkAppPasswordFieldPreview() {
-    PrimaryAppPasswordFieldPreview()
+private fun PrimaryDarkMKUIPasswordFieldPreview() {
+    PrimaryMKUIPasswordFieldPreview()
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun SecondaryDarkAppPasswordFieldPreview() {
-    SecondaryAppPasswordFieldPreview()
+private fun SecondaryDarkMKUIPasswordFieldPreview() {
+    SecondaryMKUIPasswordFieldPreview()
 }
 
 @Composable
-private fun PrimaryAppPasswordFieldPreview() {
-    AppTheme {
+private fun PrimaryMKUIPasswordFieldPreview() {
+    MKUITheme {
         Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            AppPasswordField(state = TextFieldState("Preview"))
-            AppPasswordField(
+            MKUIPasswordField(state = TextFieldState("Preview"))
+            MKUIPasswordField(
                 state = TextFieldState("Preview"),
                 label = "Label"
             )
-            AppPasswordField(
+            MKUIPasswordField(
                 state = TextFieldState(),
                 hint = "Hint"
             )
-            AppPasswordField(
+            MKUIPasswordField(
                 state = TextFieldState(),
                 error = "Error"
             )
@@ -203,27 +203,27 @@ private fun PrimaryAppPasswordFieldPreview() {
 }
 
 @Composable
-private fun SecondaryAppPasswordFieldPreview() {
-    AppTheme {
-        AppCard(
+private fun SecondaryMKUIPasswordFieldPreview() {
+    MKUITheme {
+        MKUICard(
             areDefaultPaddingsEnabled = true,
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            AppPasswordField(
+            MKUIPasswordField(
                 isPrimary = false,
                 state = TextFieldState("Preview")
             )
-            AppPasswordField(
+            MKUIPasswordField(
                 isPrimary = false,
                 state = TextFieldState("Preview"),
                 label = "Label"
             )
-            AppPasswordField(
+            MKUIPasswordField(
                 isPrimary = false,
                 state = TextFieldState(),
                 hint = "Hint"
             )
-            AppPasswordField(
+            MKUIPasswordField(
                 isPrimary = false,
                 state = TextFieldState(),
                 error = "Error"

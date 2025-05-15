@@ -13,8 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
-import manuelklyukvin.in_good_hands.core.ui.components.AppLoadingItem
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.components.MKUILoadingItem
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 import manuelklyukvin.in_good_hands.feed.ui.utils.FeedScreenParams
 import manuelklyukvin.in_good_hands.feed.ui.view_models.models.FeedState
 
@@ -23,26 +23,21 @@ internal fun LoadingFeedScreen(state: FeedState) {
     LazyVerticalGrid(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = AppTheme.shapes.screenPadding)
-            .clip(AppTheme.shapes.roundedCornerShape),
+            .padding(horizontal = MKUITheme.shapes.screenPadding)
+            .clip(MKUITheme.shapes.roundedCornerShape),
         columns = GridCells.Fixed(state.columnCount),
-        verticalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingSmall),
-        horizontalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingSmall),
+        verticalArrangement = Arrangement.spacedBy(MKUITheme.shapes.paddingSmall),
+        horizontalArrangement = Arrangement.spacedBy(MKUITheme.shapes.paddingSmall),
         userScrollEnabled = false
     ) {
         items(state.columnCount * 10) {
-            LoadingFeedPostCard()
+            MKUILoadingItem(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(FeedScreenParams.POST_HEIGHT)
+            )
         }
     }
-}
-
-@Composable
-private fun LoadingFeedPostCard() {
-    AppLoadingItem(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(FeedScreenParams.POST_HEIGHT)
-    )
 }
 
 @Preview
@@ -59,10 +54,10 @@ private fun DarkLoadingFeedScreenPreview() {
 
 @Composable
 private fun LoadingFeedScreenPreview() {
-    AppTheme {
+    MKUITheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = AppTheme.colorScheme.background
+            color = MKUITheme.colorScheme.background
         ) {
             LoadingFeedScreen(FeedState(columnCount = 2))
         }

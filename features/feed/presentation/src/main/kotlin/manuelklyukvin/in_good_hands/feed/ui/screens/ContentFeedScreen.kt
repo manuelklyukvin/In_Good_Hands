@@ -24,13 +24,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import manuelklyukvin.in_good_hands.core.ui.components.AppButton
-import manuelklyukvin.in_good_hands.core.ui.components.AppCard
-import manuelklyukvin.in_good_hands.core.ui.components.images.AppImage
-import manuelklyukvin.in_good_hands.core.ui.components.texts.AppLineText
-import manuelklyukvin.in_good_hands.core.ui.components.texts.AppText
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.components.MKUICard
+import manuelklyukvin.in_good_hands.core.ui.components.buttons.MKUIButton
+import manuelklyukvin.in_good_hands.core.ui.components.images.MKUIImage
+import manuelklyukvin.in_good_hands.core.ui.components.texts.MKUILineText
+import manuelklyukvin.in_good_hands.core.ui.components.texts.MKUIText
 import manuelklyukvin.in_good_hands.core.ui.theme.LocalNavigationState
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 import manuelklyukvin.in_good_hands.core.ui.utils.noIndicationClickable
 import manuelklyukvin.in_good_hands.feed.R
 import manuelklyukvin.in_good_hands.feed.models.PresentationFeedPost
@@ -47,11 +47,11 @@ internal fun ContentFeedScreen(state: FeedState, onIntent: (FeedIntent) -> Unit)
     LazyVerticalGrid(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = AppTheme.shapes.screenPadding)
-            .clip(AppTheme.shapes.roundedCornerShape),
+            .padding(horizontal = MKUITheme.shapes.screenPadding)
+            .clip(MKUITheme.shapes.roundedCornerShape),
         columns = GridCells.Fixed(state.columnCount),
-        verticalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingSmall),
-        horizontalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingSmall)
+        verticalArrangement = Arrangement.spacedBy(MKUITheme.shapes.paddingSmall),
+        horizontalArrangement = Arrangement.spacedBy(MKUITheme.shapes.paddingSmall)
     ) {
         items(state.feedPosts) { feedPost ->
             FeedPostCard(feedPost, onIntent)
@@ -76,33 +76,33 @@ internal fun ContentFeedScreen(state: FeedState, onIntent: (FeedIntent) -> Unit)
 private fun FeedPostCard(feedPost: PresentationFeedPost, onIntent: (FeedIntent) -> Unit) {
     val navigationState = LocalNavigationState.current
 
-    AppCard(
+    MKUICard(
         modifier = Modifier
             .height(FeedScreenParams.POST_HEIGHT)
             .noIndicationClickable {
                 onIntent(FeedIntent.OnPostClicked(navigationState, feedPost.id))
             }
     ) {
-        AppImage(
+        MKUIImage(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(175.dp)
-                .clip(AppTheme.shapes.roundedCornerShape),
+                .clip(MKUITheme.shapes.roundedCornerShape),
             model = feedPost.imageUrl,
             contentScale = ContentScale.Crop
         )
-        Column(modifier = Modifier.padding(AppTheme.shapes.paddingSmall)) {
-            AppText(
+        Column(modifier = Modifier.padding(MKUITheme.shapes.paddingSmall)) {
+            MKUIText(
                 text = feedPost.title,
-                style = AppTheme.typography.title,
-                color = AppTheme.colorScheme.primary,
+                style = MKUITheme.typography.title,
+                color = MKUITheme.colorScheme.primary,
                 maxLines = 2
             )
-            AppLineText(text = "${stringResource(R.string.pet_type_label)}: ${stringResource(feedPost.petTypeResId)}")
+            MKUILineText(text = "${stringResource(R.string.pet_type_label)}: ${stringResource(feedPost.petTypeResId)}")
             Spacer(Modifier.weight(1f))
-            AppLineText(
+            MKUILineText(
                 text = feedPost.city,
-                style = AppTheme.typography.label
+                style = MKUITheme.typography.label
             )
         }
     }
@@ -111,18 +111,18 @@ private fun FeedPostCard(feedPost: PresentationFeedPost, onIntent: (FeedIntent) 
 @Composable
 private fun PageButtons(state: FeedState, onIntent: (FeedIntent) -> Unit) {
     Row(
-        horizontalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingSmall),
+        horizontalArrangement = Arrangement.spacedBy(MKUITheme.shapes.paddingSmall),
         verticalAlignment = Alignment.CenterVertically
     ) {
         if (state.isPreviousPageButtonShown) {
-            AppButton(
+            MKUIButton(
                 modifier = Modifier.weight(1f),
                 text = stringResource(R.string.previous_page_button),
                 onClick = { onIntent(FeedIntent.OnPreviousPageButtonClicked) }
             )
         }
         if (state.isNextPageButtonShown) {
-            AppButton(
+            MKUIButton(
                 modifier = Modifier.weight(1f),
                 text = stringResource(R.string.next_page_button),
                 onClick = { onIntent(FeedIntent.OnNextPageButtonClicked) }
@@ -133,9 +133,9 @@ private fun PageButtons(state: FeedState, onIntent: (FeedIntent) -> Unit) {
 
 @Composable
 private fun Warning(text: String) {
-    AppText(
+    MKUIText(
         text = text,
-        color = AppTheme.colorScheme.outline,
+        color = MKUITheme.colorScheme.outline,
         textAlign = TextAlign.Center
     )
 }
@@ -154,10 +154,10 @@ private fun DarkContentFeedScreenPreview() {
 
 @Composable
 private fun ContentFeedScreenPreview() {
-    AppTheme {
+    MKUITheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = AppTheme.colorScheme.background
+            color = MKUITheme.colorScheme.background
         ) {
             val feedPosts = List(3) {
                 PresentationFeedPost(

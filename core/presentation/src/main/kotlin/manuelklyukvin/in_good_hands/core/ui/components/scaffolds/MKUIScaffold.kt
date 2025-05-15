@@ -11,16 +11,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 
 @Composable
-fun AppScaffold(content: @Composable () -> Unit) {
+fun MKUIScaffold(content: @Composable () -> Unit) {
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
             .systemBarsPadding(),
         containerColor = Color.Transparent,
-        bottomBar = { AppNavBar() }
+        bottomBar = { MKUINavBar() }
     ) { paddingValues ->
         Box(modifier = Modifier.padding(paddingValues)) {
             content()
@@ -30,21 +30,21 @@ fun AppScaffold(content: @Composable () -> Unit) {
 
 @Preview
 @Composable
-private fun LightAppScaffoldPreview() {
-    AppScaffoldPreview()
+private fun LightMKUIScaffoldPreview() {
+    MKUIScaffoldPreview()
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun DarkAppScaffoldPreview() {
-    AppScaffoldPreview()
+private fun DarkMKUIScaffoldPreview() {
+    MKUIScaffoldPreview()
 }
 
 @Composable
-private fun AppScaffoldPreview() {
-    AppTheme {
-        Surface(color = AppTheme.colorScheme.background) {
-            AppScaffold { }
+private fun MKUIScaffoldPreview() {
+    MKUITheme {
+        Surface(color = MKUITheme.colorScheme.background) {
+            MKUIScaffold { }
         }
     }
 }

@@ -2,7 +2,7 @@ package manuelklyukvin.in_good_hands.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-data class AppColorScheme(
+data class MKUIColorScheme(
     val primary: Color,
     val onPrimary: Color,
     val secondary: Color,
@@ -12,6 +12,5 @@ data class AppColorScheme(
     val onBackground: Color,
     val surface: Color,
     val onSurface: Color,
-    val outline: Color,
-    val transparentContainer: Color
+    val outline: Color
 )

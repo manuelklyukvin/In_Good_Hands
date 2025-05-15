@@ -4,8 +4,8 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import manuelklyukvin.in_good_hands.core.ui.navigation.NavigationState
-import manuelklyukvin.in_good_hands.core.ui.view_models.CoreViewModel
-import manuelklyukvin.in_good_hands.core.ui.view_models.models.CoreViewState
+import manuelklyukvin.in_good_hands.core.ui.view_models.MKUIViewModel
+import manuelklyukvin.in_good_hands.core.ui.view_models.models.MKUIViewState
 import manuelklyukvin.in_good_hands.core.utils.operations.models.OperationResult
 import manuelklyukvin.in_good_hands.core.utils.operations.use_cases.GetOperationErrorMessageUseCase
 import manuelklyukvin.in_good_hands.post.mappers.PostMapper
@@ -20,7 +20,7 @@ class PostViewModel(
     private val postMapper: PostMapper,
     private val getOperationErrorMessageUseCase: GetOperationErrorMessageUseCase,
     private val openMapUseCase: OpenMapUseCase,
-) : CoreViewModel<PostState, PostIntent>(PostState()) {
+) : MKUIViewModel<PostState, PostIntent>(PostState()) {
     private var loadPostJob: Job? = null
 
     override fun onIntent(intent: PostIntent) = when (intent) {
@@ -31,21 +31,21 @@ class PostViewModel(
     }
 
     private fun loadPost() {
-        reduce { copy(viewState = CoreViewState.LOADING) }
+        reduce { copy(viewState = MKUIViewState.LOADING) }
         loadPostJob?.cancel()
 
         loadPostJob = viewModelScope.launch {
             when (val getPostResult = getPostUseCase(postId)) {
                 is OperationResult.Success -> reduce {
                     copy(
-                        viewState = CoreViewState.CONTENT,
+                        viewState = MKUIViewState.CONTENT,
                         post = postMapper.toPresentation(getPostResult.data),
                         error = null
                     )
                 }
                 is OperationResult.Error -> reduce {
                     copy(
-                        viewState = CoreViewState.ERROR,
+                        viewState = MKUIViewState.ERROR,
                         error = getOperationErrorMessageUseCase(getPostResult.error)
                     )
                 }

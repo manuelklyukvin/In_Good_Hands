@@ -8,10 +8,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import manuelklyukvin.in_good_hands.core.ui.components.scaffolds.AppTopBar
-import manuelklyukvin.in_good_hands.core.ui.screens.ErrorScreen
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
-import manuelklyukvin.in_good_hands.core.ui.view_models.models.CoreViewState
+import manuelklyukvin.in_good_hands.core.ui.components.scaffolds.MKUITopBar
+import manuelklyukvin.in_good_hands.core.ui.screens.MKUIErrorScreen
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
+import manuelklyukvin.in_good_hands.core.ui.view_models.models.MKUIViewState
 import manuelklyukvin.in_good_hands.menu.ui.view_models.MenuViewModel
 import manuelklyukvin.in_good_hands.menu.ui.view_models.models.MenuIntent
 import org.koin.androidx.compose.koinViewModel
@@ -28,14 +28,14 @@ fun MenuScreen(viewModel: MenuViewModel = koinViewModel()) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(AppTheme.colorScheme.background)
+            .background(MKUITheme.colorScheme.background)
     ) {
-        AppTopBar()
+        MKUITopBar()
         when (state.viewState) {
-            CoreViewState.INITIAL -> Unit
-            CoreViewState.LOADING -> LoadingMenuScreen()
-            CoreViewState.CONTENT -> ContentMenuScreen(state, onIntent)
-            CoreViewState.ERROR -> ErrorScreen(
+            MKUIViewState.INITIAL -> Unit
+            MKUIViewState.LOADING -> LoadingMenuScreen()
+            MKUIViewState.CONTENT -> ContentMenuScreen(state, onIntent)
+            MKUIViewState.ERROR -> MKUIErrorScreen(
                 error = state.error,
                 onRetryButtonClicked = { onIntent(MenuIntent.OnRetryButtonClicked) }
             )

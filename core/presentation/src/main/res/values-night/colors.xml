@@ -10,5 +10,4 @@
     <color name="surface">#272827</color>
     <color name="on_surface">#E1E4DA</color>
     <color name="outline">#8E918B</color>
-    <color name="transparent_container">#80000000</color>
 </resources>

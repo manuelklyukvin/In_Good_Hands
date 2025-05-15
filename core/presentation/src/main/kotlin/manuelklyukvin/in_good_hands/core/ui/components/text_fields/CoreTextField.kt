@@ -6,8 +6,8 @@ import androidx.compose.foundation.text.input.delete
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import manuelklyukvin.in_good_hands.core.ui.components.texts.AppText
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.components.texts.MKUIText
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 
 @Composable
 internal fun CoreTextField(
@@ -28,18 +28,18 @@ internal fun CoreTextField(
 
     Column(modifier = modifier) {
         label?.let {
-            AppText(
+            MKUIText(
                 text = label,
-                style = AppTheme.typography.label,
-                color = AppTheme.colorScheme.outline
+                style = MKUITheme.typography.label,
+                color = MKUITheme.colorScheme.outline
             )
         }
         innerTextField()
         error?.let {
-            AppText(
+            MKUIText(
                 text = error,
-                style = AppTheme.typography.label,
-                color = AppTheme.colorScheme.error
+                style = MKUITheme.typography.label,
+                color = MKUITheme.colorScheme.error
             )
         }
     }

@@ -6,8 +6,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import manuelklyukvin.in_good_hands.core.ui.navigation.NavigationState
 import manuelklyukvin.in_good_hands.core.ui.navigation.Routes
-import manuelklyukvin.in_good_hands.core.ui.view_models.CoreViewModel
-import manuelklyukvin.in_good_hands.core.ui.view_models.models.CoreViewState
+import manuelklyukvin.in_good_hands.core.ui.view_models.MKUIViewModel
+import manuelklyukvin.in_good_hands.core.ui.view_models.models.MKUIViewState
 import manuelklyukvin.in_good_hands.core.utils.operations.models.OperationResult
 import manuelklyukvin.in_good_hands.core.utils.operations.use_cases.GetOperationErrorMessageUseCase
 import manuelklyukvin.in_good_hands.feed.mappers.FeedPostMapper
@@ -21,7 +21,7 @@ class FeedViewModel(
     private val feedPostMapper: FeedPostMapper,
     private val getOperationErrorMessageUseCase: GetOperationErrorMessageUseCase,
     private val feedGridCalculator: FeedGridCalculator
-) : CoreViewModel<FeedState, FeedIntent>(FeedState()) {
+) : MKUIViewModel<FeedState, FeedIntent>(FeedState()) {
     private var loadFeedPageJob: Job? = null
 
     override fun onIntent(intent: FeedIntent) = when (intent) {
@@ -38,7 +38,7 @@ class FeedViewModel(
     }
 
     private fun loadFeedPage() {
-        reduce { copy(viewState = CoreViewState.LOADING) }
+        reduce { copy(viewState = MKUIViewState.LOADING) }
         loadFeedPageJob?.cancel()
 
         loadFeedPageJob = viewModelScope.launch {
@@ -49,7 +49,7 @@ class FeedViewModel(
             when (getFeedPageResult) {
                 is OperationResult.Success -> reduce {
                     copy(
-                        viewState = CoreViewState.CONTENT,
+                        viewState = MKUIViewState.CONTENT,
                         feedPosts = getFeedPageResult.data.feedPosts.map {
                             feedPostMapper.toPresentation(it)
                         },
@@ -60,7 +60,7 @@ class FeedViewModel(
                 }
                 is OperationResult.Error -> reduce {
                     copy(
-                        viewState = CoreViewState.ERROR,
+                        viewState = MKUIViewState.ERROR,
                         error = getOperationErrorMessageUseCase(getFeedPageResult.error)
                     )
                 }

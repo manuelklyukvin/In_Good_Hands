@@ -3,7 +3,7 @@ package manuelklyukvin.in_good_hands.core.ui.theme
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.unit.Dp
 
-data class AppShapes(
+data class MKUIShapes(
     val screenPadding: Dp,
     val roundedCornerShape: RoundedCornerShape,
 

@@ -19,12 +19,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import manuelklyukvin.in_good_hands.core.ui.components.images.AppIcon
-import manuelklyukvin.in_good_hands.core.ui.components.text_fields.AppTextField
-import manuelklyukvin.in_good_hands.core.ui.screens.ErrorScreen
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.components.images.MKUIIcon
+import manuelklyukvin.in_good_hands.core.ui.components.text_fields.MKUITextField
+import manuelklyukvin.in_good_hands.core.ui.screens.MKUIErrorScreen
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 import manuelklyukvin.in_good_hands.core.ui.utils.noIndicationClickable
-import manuelklyukvin.in_good_hands.core.ui.view_models.models.CoreViewState
+import manuelklyukvin.in_good_hands.core.ui.view_models.models.MKUIViewState
 import manuelklyukvin.in_good_hands.feed.R
 import manuelklyukvin.in_good_hands.feed.ui.view_models.FeedViewModel
 import manuelklyukvin.in_good_hands.feed.ui.view_models.models.FeedIntent
@@ -40,7 +40,7 @@ fun FeedScreen(viewModel: FeedViewModel = koinViewModel()) {
 
     val configuration = LocalConfiguration.current
     val screenWidth = configuration.screenWidthDp.dp
-    val spacing = AppTheme.shapes.screenPadding
+    val spacing = MKUITheme.shapes.screenPadding
 
     LaunchedEffect(screenWidth) {
         onIntent(FeedIntent.OnScreenWidthUpdated(screenWidth, spacing))
@@ -52,14 +52,14 @@ fun FeedScreen(viewModel: FeedViewModel = koinViewModel()) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(AppTheme.colorScheme.background)
+            .background(MKUITheme.colorScheme.background)
     ) {
         SearchBar(state, onIntent)
         when (state.viewState) {
-            CoreViewState.INITIAL -> Unit
-            CoreViewState.LOADING -> LoadingFeedScreen(state)
-            CoreViewState.CONTENT -> ContentFeedScreen(state, onIntent)
-            CoreViewState.ERROR -> ErrorScreen(
+            MKUIViewState.INITIAL -> Unit
+            MKUIViewState.LOADING -> LoadingFeedScreen(state)
+            MKUIViewState.CONTENT -> ContentFeedScreen(state, onIntent)
+            MKUIViewState.ERROR -> MKUIErrorScreen(
                 error = state.error,
                 onRetryButtonClicked = { onIntent(FeedIntent.OnRetryButtonClicked) }
             )
@@ -71,20 +71,20 @@ fun FeedScreen(viewModel: FeedViewModel = koinViewModel()) {
 private fun SearchBar(state: FeedState, onIntent: (FeedIntent) -> Unit) {
     Row(
         modifier = Modifier.padding(
-            vertical = AppTheme.shapes.paddingSmall,
-            horizontal = AppTheme.shapes.screenPadding
+            vertical = MKUITheme.shapes.paddingSmall,
+            horizontal = MKUITheme.shapes.screenPadding
         ),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        AppTextField(
+        MKUITextField(
             modifier = Modifier.weight(1f),
             state = state.searchFieldState,
             hint = stringResource(R.string.search_query_hint)
         )
-        Spacer(Modifier.width(AppTheme.shapes.paddingSmall))
-        AppIcon(
+        Spacer(Modifier.width(MKUITheme.shapes.paddingSmall))
+        MKUIIcon(
             modifier = Modifier
-                .size(AppTheme.shapes.sizeMedium)
+                .size(MKUITheme.shapes.sizeMedium)
                 .noIndicationClickable { onIntent(FeedIntent.OnSearchButtonClicked) },
             model = painterResource(CoreR.drawable.search)
         )

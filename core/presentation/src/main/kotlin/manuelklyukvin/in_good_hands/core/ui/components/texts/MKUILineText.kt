@@ -10,13 +10,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 
 @Composable
-fun AppLineText(
+fun MKUILineText(
     modifier: Modifier = Modifier,
     text: String,
-    style: TextStyle = AppTheme.typography.body,
+    style: TextStyle = MKUITheme.typography.body,
     color: Color = style.color,
     textAlign: TextAlign? = null
 ) {
@@ -33,21 +33,21 @@ fun AppLineText(
 
 @Preview
 @Composable
-private fun LightAppLineTextPreview() {
-    AppLineTextPreview()
+private fun LightMKUILineTextPreview() {
+    MKUILineTextPreview()
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun DarkAppLineTextPreview() {
-    AppLineTextPreview()
+private fun DarkMKUILineTextPreview() {
+    MKUILineTextPreview()
 }
 
 @Composable
-private fun AppLineTextPreview() {
-    AppTheme {
-        Surface(color = AppTheme.colorScheme.surface) {
-            AppLineText(text = "Preview")
+private fun MKUILineTextPreview() {
+    MKUITheme {
+        Surface(color = MKUITheme.colorScheme.surface) {
+            MKUILineText(text = "Preview")
         }
     }
 }

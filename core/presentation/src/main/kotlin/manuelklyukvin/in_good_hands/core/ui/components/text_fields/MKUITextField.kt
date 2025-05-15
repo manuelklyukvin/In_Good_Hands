@@ -17,12 +17,12 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import manuelklyukvin.in_good_hands.core.ui.components.AppCard
-import manuelklyukvin.in_good_hands.core.ui.components.texts.AppLineText
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.components.MKUICard
+import manuelklyukvin.in_good_hands.core.ui.components.texts.MKUILineText
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 
 @Composable
-fun AppTextField(
+fun MKUITextField(
     modifier: Modifier = Modifier,
     state: TextFieldState,
     isPrimary: Boolean = true,
@@ -63,33 +63,33 @@ private fun InnerTextField(
             .fillMaxWidth()
             .background(
                 color = if (isPrimary) {
-                    AppTheme.colorScheme.surface
+                    MKUITheme.colorScheme.surface
                 } else {
-                    AppTheme.colorScheme.background
+                    MKUITheme.colorScheme.background
                 },
-                shape = AppTheme.shapes.roundedCornerShape
+                shape = MKUITheme.shapes.roundedCornerShape
             )
             .let {
                 if (error != null) {
                     it.border(
                         width = 1.dp,
-                        color = AppTheme.colorScheme.error,
-                        shape = AppTheme.shapes.roundedCornerShape
+                        color = MKUITheme.colorScheme.error,
+                        shape = MKUITheme.shapes.roundedCornerShape
                     )
                 } else it
             }
-            .padding(AppTheme.shapes.paddingMedium),
+            .padding(MKUITheme.shapes.paddingMedium),
         state = state,
-        textStyle = AppTheme.typography.body.copy(
+        textStyle = MKUITheme.typography.body.copy(
             color = if (isPrimary) {
-                AppTheme.colorScheme.onSurface
+                MKUITheme.colorScheme.onSurface
             } else {
-                AppTheme.colorScheme.onBackground
+                MKUITheme.colorScheme.onBackground
             }
         ),
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
         lineLimits = TextFieldLineLimits.SingleLine,
-        cursorBrush = SolidColor(AppTheme.colorScheme.primary),
+        cursorBrush = SolidColor(MKUITheme.colorScheme.primary),
         decorator = { inputField ->
             Decorator(
                 state = state,
@@ -109,51 +109,51 @@ private fun Decorator(
 ) {
     inputField()
     if (state.text.isEmpty() && hint != null) {
-        AppLineText(
+        MKUILineText(
             text = hint,
-            color = AppTheme.colorScheme.outline
+            color = MKUITheme.colorScheme.outline
         )
     }
 }
 
 @Preview
 @Composable
-private fun PrimaryLightAppTextFieldPreview() {
-    PrimaryAppTextFieldPreview()
+private fun PrimaryLightMKUITextFieldPreview() {
+    PrimaryMKUITextFieldPreview()
 }
 
 @Preview
 @Composable
-private fun SecondaryLightAppTextFieldPreview() {
-    SecondaryAppTextFieldPreview()
+private fun SecondaryLightMKUITextFieldPreview() {
+    SecondaryMKUITextFieldPreview()
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun PrimaryDarkAppTextFieldPreview() {
-    PrimaryAppTextFieldPreview()
+private fun PrimaryDarkMKUITextFieldPreview() {
+    PrimaryMKUITextFieldPreview()
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun SecondaryDarkAppTextFieldPreview() {
-    SecondaryAppTextFieldPreview()
+private fun SecondaryDarkMKUITextFieldPreview() {
+    SecondaryMKUITextFieldPreview()
 }
 
 @Composable
-private fun PrimaryAppTextFieldPreview() {
-    AppTheme {
+private fun PrimaryMKUITextFieldPreview() {
+    MKUITheme {
         Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            AppTextField(state = TextFieldState("Preview"))
-            AppTextField(
+            MKUITextField(state = TextFieldState("Preview"))
+            MKUITextField(
                 state = TextFieldState("Preview"),
                 label = "Label"
             )
-            AppTextField(
+            MKUITextField(
                 state = TextFieldState(),
                 hint = "Hint"
             )
-            AppTextField(
+            MKUITextField(
                 state = TextFieldState(),
                 error = "Error"
             )
@@ -162,27 +162,27 @@ private fun PrimaryAppTextFieldPreview() {
 }
 
 @Composable
-private fun SecondaryAppTextFieldPreview() {
-    AppTheme {
-        AppCard(
+private fun SecondaryMKUITextFieldPreview() {
+    MKUITheme {
+        MKUICard(
             areDefaultPaddingsEnabled = true,
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            AppTextField(
+            MKUITextField(
                 isPrimary = false,
                 state = TextFieldState("Preview")
             )
-            AppTextField(
+            MKUITextField(
                 isPrimary = false,
                 state = TextFieldState("Preview"),
                 label = "Label"
             )
-            AppTextField(
+            MKUITextField(
                 isPrimary = false,
                 state = TextFieldState(),
                 hint = "Hint"
             )
-            AppTextField(
+            MKUITextField(
                 isPrimary = false,
                 state = TextFieldState(),
                 error = "Error"

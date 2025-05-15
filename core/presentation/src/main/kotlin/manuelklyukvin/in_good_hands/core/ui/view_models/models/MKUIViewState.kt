@@ -1,3 +1,3 @@
 package manuelklyukvin.in_good_hands.core.ui.view_models.models
 
-enum class CoreViewState { INITIAL, LOADING, CONTENT, ERROR }
+enum class MKUIViewState { INITIAL, LOADING, CONTENT, ERROR }

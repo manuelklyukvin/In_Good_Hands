@@ -21,29 +21,29 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import manuelklyukvin.in_good_hands.core.R
-import manuelklyukvin.in_good_hands.core.ui.components.images.AppIcon
-import manuelklyukvin.in_good_hands.core.ui.components.texts.AppLineText
+import manuelklyukvin.in_good_hands.core.ui.components.images.MKUIIcon
+import manuelklyukvin.in_good_hands.core.ui.components.texts.MKUILineText
 import manuelklyukvin.in_good_hands.core.ui.navigation.Routes
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
 import manuelklyukvin.in_good_hands.core.ui.theme.LocalNavigationState
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 import manuelklyukvin.in_good_hands.core.ui.utils.noIndicationClickable
 
 @Composable
-fun AppNavBar() {
+fun MKUINavBar() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(AppTheme.shapes.screenPadding),
+            .padding(MKUITheme.shapes.screenPadding),
         horizontalArrangement = Arrangement.SpaceAround,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        AppNavBarItem(
+        MKUINavBarItem(
             icon = painterResource(R.drawable.home),
             label = stringResource(R.string.home_nav_bar_button),
             block = Routes.HomeBlock,
             startRoute = Routes.Feed
         )
-        AppNavBarItem(
+        MKUINavBarItem(
             icon = painterResource(R.drawable.menu),
             label = stringResource(R.string.menu_nav_bar_button),
             block = Routes.MenuBlock,
@@ -53,7 +53,7 @@ fun AppNavBar() {
 }
 
 @Composable
-private fun AppNavBarItem(
+private fun MKUINavBarItem(
     icon: Painter,
     label: String,
     block: Routes,
@@ -68,9 +68,9 @@ private fun AppNavBarItem(
     } ?: false
 
     val currentColor = if (isSelected) {
-        AppTheme.colorScheme.primary
+        MKUITheme.colorScheme.primary
     } else {
-        AppTheme.colorScheme.onBackground
+        MKUITheme.colorScheme.onBackground
     }
 
     Column(
@@ -81,13 +81,13 @@ private fun AppNavBarItem(
         },
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        AppIcon(
-            modifier = Modifier.size(AppTheme.shapes.sizeSmall),
+        MKUIIcon(
+            modifier = Modifier.size(MKUITheme.shapes.sizeSmall),
             model = icon,
             tint = currentColor
         )
-        Spacer(Modifier.height(AppTheme.shapes.paddingExtraSmall))
-        AppLineText(
+        Spacer(Modifier.height(MKUITheme.shapes.paddingExtraSmall))
+        MKUILineText(
             text = label,
             color = currentColor
         )
@@ -96,21 +96,21 @@ private fun AppNavBarItem(
 
 @Preview
 @Composable
-private fun LightAppNavBarPreview() {
-    AppNavBarPreview()
+private fun LightMKUINavBarPreview() {
+    MKUINavBarPreview()
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun DarkAppNavBarPreview() {
-    AppNavBarPreview()
+private fun DarkMKUINavBarPreview() {
+    MKUINavBarPreview()
 }
 
 @Composable
-private fun AppNavBarPreview() {
-    AppTheme {
-        Surface(color = AppTheme.colorScheme.background) {
-            AppNavBar()
+private fun MKUINavBarPreview() {
+    MKUITheme {
+        Surface(color = MKUITheme.colorScheme.background) {
+            MKUINavBar()
         }
     }
 }

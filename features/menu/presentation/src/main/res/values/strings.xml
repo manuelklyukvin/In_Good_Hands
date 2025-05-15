@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="guest_name">Guest</string>
+
+    <string name="sign_in_button">Sign in</string>
+    <string name="sign_up_button">Sign up</string>
+    <string name="sign_out_button">Sign out</string>
+
+    <string name="publish_post_button">Publish post</string>
 </resources>

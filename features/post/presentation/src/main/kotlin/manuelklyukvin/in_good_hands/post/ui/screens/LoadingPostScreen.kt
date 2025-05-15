@@ -12,9 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import manuelklyukvin.in_good_hands.core.ui.components.AppLoadingItem
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.components.MKUILoadingItem
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 import manuelklyukvin.in_good_hands.post.ui.utils.PostScreenParams
 
 @Composable
@@ -22,41 +21,18 @@ internal fun LoadingPostScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = AppTheme.shapes.screenPadding)
-            .clip(AppTheme.shapes.roundedCornerShape),
-        verticalArrangement = Arrangement.spacedBy(AppTheme.shapes.paddingSmall)
+            .padding(horizontal = MKUITheme.shapes.screenPadding)
+            .clip(MKUITheme.shapes.roundedCornerShape),
+        verticalArrangement = Arrangement.spacedBy(MKUITheme.shapes.paddingSmall)
     ) {
-        LoadingImagePager()
-        LoadingPostBlock()
-        LoadingUserBlock()
+        repeat(3) {
+            MKUILoadingItem(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(PostScreenParams.IMAGE_HEIGHT)
+            )
+        }
     }
-}
-
-@Composable
-private fun LoadingImagePager() {
-    AppLoadingItem(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(PostScreenParams.IMAGE_HEIGHT)
-    )
-}
-
-@Composable
-private fun LoadingPostBlock() {
-    AppLoadingItem(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(300.dp)
-    )
-}
-
-@Composable
-private fun LoadingUserBlock() {
-    AppLoadingItem(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(150.dp)
-    )
 }
 
 @Preview
@@ -73,10 +49,10 @@ private fun DarkLoadingPostScreenPreview() {
 
 @Composable
 private fun LoadingPostScreenPreview() {
-    AppTheme {
+    MKUITheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = AppTheme.colorScheme.background
+            color = MKUITheme.colorScheme.background
         ) {
             LoadingPostScreen()
         }

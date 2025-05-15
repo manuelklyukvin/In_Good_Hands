@@ -9,10 +9,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
 import manuelklyukvin.in_good_hands.core.R
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 
 @Composable
-fun AppImage(
+fun MKUIImage(
     modifier: Modifier = Modifier,
     model: Any,
     contentScale: ContentScale = ContentScale.Fit
@@ -36,8 +36,8 @@ fun AppImage(
 
 @Preview
 @Composable
-private fun AppImagePreview() {
-    AppTheme {
-        AppImage(model = painterResource(R.drawable.avatar))
+private fun MKUIImagePreview() {
+    MKUITheme {
+        MKUIImage(model = painterResource(R.drawable.avatar))
     }
 }

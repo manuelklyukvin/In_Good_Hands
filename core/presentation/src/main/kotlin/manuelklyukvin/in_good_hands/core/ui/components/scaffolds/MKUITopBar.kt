@@ -12,27 +12,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import manuelklyukvin.in_good_hands.core.R
-import manuelklyukvin.in_good_hands.core.ui.components.images.AppIcon
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.components.images.MKUIIcon
 import manuelklyukvin.in_good_hands.core.ui.theme.LocalNavigationState
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 import manuelklyukvin.in_good_hands.core.ui.utils.noIndicationClickable
 
 @Composable
-fun AppTopBar() {
+fun MKUITopBar() {
     val navigationState = LocalNavigationState.current
 
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(
-                vertical = AppTheme.shapes.paddingSmall,
-                horizontal = AppTheme.shapes.screenPadding
+                vertical = MKUITheme.shapes.paddingSmall,
+                horizontal = MKUITheme.shapes.screenPadding
             ),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        AppIcon(
+        MKUIIcon(
             modifier = Modifier
-                .size(AppTheme.shapes.sizeMedium)
+                .size(MKUITheme.shapes.sizeMedium)
                 .noIndicationClickable { navigationState.navigateUp() },
             model = painterResource(R.drawable.arrow_back)
         )
@@ -41,21 +41,21 @@ fun AppTopBar() {
 
 @Preview
 @Composable
-private fun LightAppTopBarPreview() {
-    AppTopBarPreview()
+private fun LightMKUITopBarPreview() {
+    MKUITopBarPreview()
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun DarkAppTopBarPreview() {
-    AppTopBarPreview()
+private fun DarkMKTopBarPreview() {
+    MKUITopBarPreview()
 }
 
 @Composable
-private fun AppTopBarPreview() {
-    AppTheme {
-        Surface(color = AppTheme.colorScheme.background) {
-            AppTopBar()
+private fun MKUITopBarPreview() {
+    MKUITheme {
+        Surface(color = MKUITheme.colorScheme.background) {
+            MKUITopBar()
         }
     }
 }

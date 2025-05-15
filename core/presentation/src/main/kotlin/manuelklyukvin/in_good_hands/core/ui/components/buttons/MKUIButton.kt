@@ -1,4 +1,4 @@
-package manuelklyukvin.in_good_hands.core.ui.components
+package manuelklyukvin.in_good_hands.core.ui.components.buttons
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
@@ -9,17 +9,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import manuelklyukvin.in_good_hands.core.ui.components.texts.AppText
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.components.texts.MKUIText
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 
 @Composable
-fun AppButton(
+fun MKUIButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     text: String? = null,
     isEnabled: Boolean = true,
-    containerColor: Color = AppTheme.colorScheme.primary,
-    contentColor: Color = AppTheme.colorScheme.onPrimary,
+    containerColor: Color = MKUITheme.colorScheme.primary,
+    contentColor: Color = MKUITheme.colorScheme.onPrimary,
     content: @Composable (() -> Unit)? = null
 ) {
     val alpha = 0.5f
@@ -30,17 +30,17 @@ fun AppButton(
         modifier = modifier,
         onClick = onClick,
         enabled = isEnabled,
-        shape = AppTheme.shapes.roundedCornerShape,
+        shape = MKUITheme.shapes.roundedCornerShape,
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor,
             contentColor = contentColor,
             disabledContainerColor = disabledContainerColor,
             disabledContentColor = disabledContentColor
         ),
-        contentPadding = PaddingValues(horizontal = AppTheme.shapes.paddingExtraLarge)
+        contentPadding = PaddingValues(horizontal = MKUITheme.shapes.paddingExtraLarge)
     ) {
         if (text != null) {
-            AppText(
+            MKUIText(
                 text = text,
                 color = if (isEnabled) contentColor else disabledContentColor
             )
@@ -50,37 +50,37 @@ fun AppButton(
 
 @Preview
 @Composable
-private fun LightPrimaryAppButtonPreview() {
-    PrimaryAppButtonPreview()
+private fun LightPrimaryMKUIButtonPreview() {
+    PrimaryMKUIButtonPreview()
 }
 
 @Preview
 @Composable
-private fun LightSecondaryAppButtonPreview() {
-    SecondaryAppButtonPreview()
+private fun LightSecondaryMKUIButtonPreview() {
+    SecondaryMKUIButtonPreview()
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun DarkPrimaryAppButtonPreview() {
-    PrimaryAppButtonPreview()
+private fun DarkPrimaryMKUIButtonPreview() {
+    PrimaryMKUIButtonPreview()
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun DarkSecondaryAppButtonPreview() {
-    SecondaryAppButtonPreview()
+private fun DarkSecondaryMKUIButtonPreview() {
+    SecondaryMKUIButtonPreview()
 }
 
 @Composable
-private fun PrimaryAppButtonPreview() {
-    AppTheme {
+private fun PrimaryMKUIButtonPreview() {
+    MKUITheme {
         Column {
-            AppButton(
+            MKUIButton(
                 text = "Enabled",
                 onClick = { }
             )
-            AppButton(
+            MKUIButton(
                 text = "Disabled",
                 onClick = { },
                 isEnabled = false
@@ -90,21 +90,21 @@ private fun PrimaryAppButtonPreview() {
 }
 
 @Composable
-private fun SecondaryAppButtonPreview() {
-    AppTheme {
+private fun SecondaryMKUIButtonPreview() {
+    MKUITheme {
         Column {
-            AppButton(
+            MKUIButton(
                 text = "Enabled",
                 onClick = { },
-                containerColor = AppTheme.colorScheme.secondary,
-                contentColor = AppTheme.colorScheme.onSecondary
+                containerColor = MKUITheme.colorScheme.secondary,
+                contentColor = MKUITheme.colorScheme.onSecondary
             )
-            AppButton(
+            MKUIButton(
                 text = "Disabled",
                 onClick = { },
                 isEnabled = false,
-                containerColor = AppTheme.colorScheme.secondary,
-                contentColor = AppTheme.colorScheme.onSecondary
+                containerColor = MKUITheme.colorScheme.secondary,
+                contentColor = MKUITheme.colorScheme.onSecondary
             )
         }
     }

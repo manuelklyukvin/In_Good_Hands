@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="guest_name">Гость</string>
+
+    <string name="sign_in_button">Войти</string>
+    <string name="sign_up_button">Зарегистрироваться</string>
+    <string name="sign_out_button">Выйти</string>
+
+    <string name="publish_post_button">Выложить объявление</string>
 </resources>

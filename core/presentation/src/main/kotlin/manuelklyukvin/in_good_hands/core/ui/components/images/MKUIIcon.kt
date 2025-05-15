@@ -8,13 +8,13 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import manuelklyukvin.in_good_hands.core.R
-import manuelklyukvin.in_good_hands.core.ui.theme.AppTheme
+import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 
 @Composable
-fun AppIcon(
+fun MKUIIcon(
     modifier: Modifier = Modifier,
     model: Painter,
-    tint: Color = AppTheme.colorScheme.primary
+    tint: Color = MKUITheme.colorScheme.primary
 ) {
     Icon(
         modifier = modifier,
@@ -26,8 +26,8 @@ fun AppIcon(
 
 @Preview
 @Composable
-private fun AppIconPreview() {
-    AppTheme {
-        AppIcon(model = painterResource(R.drawable.avatar))
+private fun MKUIIconPreview() {
+    MKUITheme {
+        MKUIIcon(model = painterResource(R.drawable.avatar))
     }
 }

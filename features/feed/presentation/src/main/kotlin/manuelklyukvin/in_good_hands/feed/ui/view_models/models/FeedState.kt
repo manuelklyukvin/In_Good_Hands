@@ -1,12 +1,12 @@
 package manuelklyukvin.in_good_hands.feed.ui.view_models.models
 
 import androidx.compose.foundation.text.input.TextFieldState
-import manuelklyukvin.in_good_hands.core.ui.view_models.models.CoreState
-import manuelklyukvin.in_good_hands.core.ui.view_models.models.CoreViewState
+import manuelklyukvin.in_good_hands.core.ui.view_models.models.MKUIState
+import manuelklyukvin.in_good_hands.core.ui.view_models.models.MKUIViewState
 import manuelklyukvin.in_good_hands.feed.models.PresentationFeedPost
 
 data class FeedState(
-    override val viewState: CoreViewState = CoreViewState.INITIAL,
+    override val viewState: MKUIViewState = MKUIViewState.INITIAL,
     val columnCount: Int = 1,
 
     val searchFieldState: TextFieldState = TextFieldState(),
@@ -18,4 +18,4 @@ data class FeedState(
     val isNextPageButtonShown: Boolean = false,
 
     val error: String? = null
-) : CoreState()
+) : MKUIState()
