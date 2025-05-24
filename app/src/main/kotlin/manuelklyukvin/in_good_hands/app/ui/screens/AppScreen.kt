@@ -9,7 +9,8 @@ import manuelklyukvin.in_good_hands.core.ui.navigation.graphs.AppNavGraph
 import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 import manuelklyukvin.in_good_hands.feed.ui.screens.FeedScreen
 import manuelklyukvin.in_good_hands.menu.ui.screens.MenuScreen
-import manuelklyukvin.in_good_hands.post.ui.screens.PostScreen
+import manuelklyukvin.in_good_hands.posts.ui.screens.PostScreen
+import manuelklyukvin.in_good_hands.profile.ui.screens.ProfileScreen
 
 @Composable
 fun AppScreen() {
@@ -22,7 +23,8 @@ fun AppScreen() {
                 AppNavGraph(
                     feedScreen = { FeedScreen() },
                     postScreen = { postId -> PostScreen(postId = postId) },
-                    menuScreen = { MenuScreen() }
+                    menuScreen = { MenuScreen() },
+                    profileScreen = { userId -> ProfileScreen(userId = userId) }
                 )
             }
         }

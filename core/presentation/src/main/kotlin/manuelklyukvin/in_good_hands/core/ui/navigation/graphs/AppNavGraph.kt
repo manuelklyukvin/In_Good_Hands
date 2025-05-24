@@ -10,7 +10,8 @@ import manuelklyukvin.in_good_hands.core.ui.theme.resources.Animations
 fun AppNavGraph(
     feedScreen: @Composable () -> Unit,
     postScreen: @Composable (Long) -> Unit,
-    menuScreen: @Composable () -> Unit
+    menuScreen: @Composable () -> Unit,
+    profileScreen: @Composable (Long) -> Unit
 ) {
     NavHost(
         navController = LocalNavigationState.current.navController,
@@ -23,7 +24,8 @@ fun AppNavGraph(
             postScreen = { postId -> postScreen(postId) }
         )
         menuNavGraph(
-            menuScreen = { menuScreen() }
+            menuScreen = { menuScreen() },
+            profileScreen = { userId -> profileScreen(userId) }
         )
     }
 }

@@ -29,6 +29,11 @@
             <option value="$PROJECT_DIR$/core/domain" />
             <option value="$PROJECT_DIR$/core/presentation" />
             <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/addresses" />
+            <option value="$PROJECT_DIR$/features/addresses/data" />
+            <option value="$PROJECT_DIR$/features/addresses/di" />
+            <option value="$PROJECT_DIR$/features/addresses/domain" />
+            <option value="$PROJECT_DIR$/features/addresses/presentation" />
             <option value="$PROJECT_DIR$/features/feed" />
             <option value="$PROJECT_DIR$/features/feed/data" />
             <option value="$PROJECT_DIR$/features/feed/di" />
@@ -39,11 +44,26 @@
             <option value="$PROJECT_DIR$/features/menu/di" />
             <option value="$PROJECT_DIR$/features/menu/domain" />
             <option value="$PROJECT_DIR$/features/menu/presentation" />
-            <option value="$PROJECT_DIR$/features/post" />
-            <option value="$PROJECT_DIR$/features/post/data" />
-            <option value="$PROJECT_DIR$/features/post/di" />
-            <option value="$PROJECT_DIR$/features/post/domain" />
-            <option value="$PROJECT_DIR$/features/post/presentation" />
+            <option value="$PROJECT_DIR$/features/pets" />
+            <option value="$PROJECT_DIR$/features/pets/data" />
+            <option value="$PROJECT_DIR$/features/pets/di" />
+            <option value="$PROJECT_DIR$/features/pets/domain" />
+            <option value="$PROJECT_DIR$/features/pets/presentation" />
+            <option value="$PROJECT_DIR$/features/posts" />
+            <option value="$PROJECT_DIR$/features/posts/data" />
+            <option value="$PROJECT_DIR$/features/posts/di" />
+            <option value="$PROJECT_DIR$/features/posts/domain" />
+            <option value="$PROJECT_DIR$/features/posts/presentation" />
+            <option value="$PROJECT_DIR$/features/profile" />
+            <option value="$PROJECT_DIR$/features/profile/data" />
+            <option value="$PROJECT_DIR$/features/profile/di" />
+            <option value="$PROJECT_DIR$/features/profile/domain" />
+            <option value="$PROJECT_DIR$/features/profile/presentation" />
+            <option value="$PROJECT_DIR$/features/users" />
+            <option value="$PROJECT_DIR$/features/users/data" />
+            <option value="$PROJECT_DIR$/features/users/di" />
+            <option value="$PROJECT_DIR$/features/users/domain" />
+            <option value="$PROJECT_DIR$/features/users/presentation" />
           </set>
         </option>
       </GradleProjectSettings>

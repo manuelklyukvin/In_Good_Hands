@@ -2,9 +2,9 @@ package manuelklyukvin.in_good_hands.feed.use_cases
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import manuelklyukvin.in_good_hands.core.languages.use_cases.GetLanguageIdUseCase
-import manuelklyukvin.in_good_hands.core.utils.operations.models.OperationResult
-import manuelklyukvin.in_good_hands.core.utils.operations.use_cases.GetOperationErrorUseCase
+import manuelklyukvin.in_good_hands.addresses.use_cases.GetLanguageIdUseCase
+import manuelklyukvin.in_good_hands.core.operations.models.OperationResult
+import manuelklyukvin.in_good_hands.core.operations.use_cases.GetOperationErrorUseCase
 import manuelklyukvin.in_good_hands.feed.repositories.FeedPageRepository
 
 class GetFeedPageUseCase(

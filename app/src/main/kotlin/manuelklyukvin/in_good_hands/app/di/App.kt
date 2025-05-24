@@ -4,10 +4,14 @@ import android.app.Application
 import coil.ImageLoader
 import coil.ImageLoaderFactory
 import coil.request.CachePolicy
+import manuelklyukvin.in_good_hands.addresses.di.addressesModule
 import manuelklyukvin.in_good_hands.core.di.coreModule
 import manuelklyukvin.in_good_hands.feed.di.feedModule
 import manuelklyukvin.in_good_hands.menu.di.menuModule
-import manuelklyukvin.in_good_hands.post.di.postModule
+import manuelklyukvin.in_good_hands.pets.di.petsModule
+import manuelklyukvin.in_good_hands.posts.di.postsModule
+import manuelklyukvin.in_good_hands.profile.di.profileModule
+import manuelklyukvin.in_good_hands.users.di.usersModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -18,8 +22,8 @@ class App : Application(), ImageLoaderFactory {
             androidContext(this@App)
             modules(
                 coreModule,
-                feedModule, postModule,
-                menuModule
+                usersModule, postsModule, petsModule, addressesModule,
+                feedModule, menuModule, profileModule
             )
         }
     }

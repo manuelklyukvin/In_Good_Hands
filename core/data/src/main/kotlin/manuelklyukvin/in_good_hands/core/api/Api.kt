@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object Api {
-    internal const val API_URL = "http://192.168.83.42:8080/api/"
+    const val API_URL = "http://100.65.6.242:8080/api/"
 
     private val gson = GsonBuilder().serializeNulls().create()
 

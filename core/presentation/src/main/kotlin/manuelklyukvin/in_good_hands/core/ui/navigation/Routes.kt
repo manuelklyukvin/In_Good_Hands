@@ -14,4 +14,6 @@ sealed class Routes {
     data object MenuBlock : Routes()
     @Serializable
     data object Menu : Routes()
+    @Serializable
+    data class Profile(val userId: Long) : Routes()
 }

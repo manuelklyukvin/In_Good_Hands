@@ -2,6 +2,7 @@ package manuelklyukvin.in_good_hands.menu.ui.screens
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -30,9 +31,9 @@ import manuelklyukvin.in_good_hands.core.ui.theme.LocalNavigationState
 import manuelklyukvin.in_good_hands.core.ui.theme.MKUITheme
 import manuelklyukvin.in_good_hands.core.ui.utils.noIndicationClickable
 import manuelklyukvin.in_good_hands.menu.R
-import manuelklyukvin.in_good_hands.menu.models.PresentationUser
 import manuelklyukvin.in_good_hands.menu.ui.view_models.models.MenuIntent
 import manuelklyukvin.in_good_hands.menu.ui.view_models.models.MenuState
+import manuelklyukvin.in_good_hands.users.models.PresentationUser
 import manuelklyukvin.in_good_hands.core.R as CoreR
 
 @Composable
@@ -70,7 +71,7 @@ private fun CurrentUserBlock(currentUser: PresentationUser?, onIntent: (MenuInte
                     modifier = Modifier
                         .size(MKUITheme.shapes.sizeExtraLarge)
                         .clip(RoundedCornerShape(100)),
-                    model = currentUser.avatarUrl,
+                    model = currentUser.avatarUrl!!,
                     contentScale = ContentScale.Crop
                 )
             } else {
@@ -80,10 +81,19 @@ private fun CurrentUserBlock(currentUser: PresentationUser?, onIntent: (MenuInte
                 )
             }
             Spacer(Modifier.width(MKUITheme.shapes.paddingExtraLarge))
-            MKUILineText(
-                text = currentUser?.name ?: stringResource(R.string.guest_name),
-                style = MKUITheme.typography.headline
-            )
+            Column {
+                MKUILineText(
+                    text = currentUser?.name ?: stringResource(R.string.guest_name),
+                    style = MKUITheme.typography.headline
+                )
+                currentUser?.let {
+                    MKUILineText(
+                        text = stringResource(currentUser.roleResId),
+                        style = MKUITheme.typography.body,
+                        color = MKUITheme.colorScheme.primary
+                    )
+                }
+            }
         }
     }
 }
@@ -178,8 +188,11 @@ private fun ContentUserMenuScreenPreview() {
                 state = MenuState(
                     currentUser = PresentationUser(
                         id = 0,
+                        roleResId = R.string.guest_name,
                         avatarUrl = null,
-                        name = "User"
+                        name = "User",
+                        email = "user@mail.com",
+                        phoneNumber = "+1 (000) 000-00-00"
                     )
                 ),
                 onIntent = { }

@@ -4,12 +4,12 @@ import androidx.compose.ui.unit.Dp
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import manuelklyukvin.in_good_hands.core.operations.models.OperationResult
+import manuelklyukvin.in_good_hands.core.operations.use_cases.GetOperationErrorMessageUseCase
 import manuelklyukvin.in_good_hands.core.ui.navigation.NavigationState
 import manuelklyukvin.in_good_hands.core.ui.navigation.Routes
 import manuelklyukvin.in_good_hands.core.ui.view_models.MKUIViewModel
 import manuelklyukvin.in_good_hands.core.ui.view_models.models.MKUIViewState
-import manuelklyukvin.in_good_hands.core.utils.operations.models.OperationResult
-import manuelklyukvin.in_good_hands.core.utils.operations.use_cases.GetOperationErrorMessageUseCase
 import manuelklyukvin.in_good_hands.feed.mappers.FeedPostMapper
 import manuelklyukvin.in_good_hands.feed.ui.utils.FeedGridCalculator
 import manuelklyukvin.in_good_hands.feed.ui.view_models.models.FeedIntent

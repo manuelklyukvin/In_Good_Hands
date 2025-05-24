@@ -1,6 +1,8 @@
 import manuelklyukvin.in_good_hands.build_src.configs.GradleNamespaces
 import manuelklyukvin.in_good_hands.build_src.gradle_plugins.PresentationGradlePlugin
 import manuelklyukvin.in_good_hands.build_src.modules.menuDomain
+import manuelklyukvin.in_good_hands.build_src.modules.usersDomain
+import manuelklyukvin.in_good_hands.build_src.modules.usersPresentation
 
 apply<PresentationGradlePlugin>()
 
@@ -14,4 +16,7 @@ android {
 
 dependencies {
     menuDomain()
+
+    usersDomain()
+    usersPresentation()
 }

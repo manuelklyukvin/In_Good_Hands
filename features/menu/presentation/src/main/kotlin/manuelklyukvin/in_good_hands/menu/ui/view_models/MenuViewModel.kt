@@ -1,23 +1,18 @@
 package manuelklyukvin.in_good_hands.menu.ui.view_models
 
-import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import manuelklyukvin.in_good_hands.core.operations.use_cases.GetOperationErrorMessageUseCase
 import manuelklyukvin.in_good_hands.core.ui.navigation.NavigationState
 import manuelklyukvin.in_good_hands.core.ui.view_models.MKUIViewModel
 import manuelklyukvin.in_good_hands.core.ui.view_models.models.MKUIViewState
-import manuelklyukvin.in_good_hands.core.utils.operations.models.OperationResult
-import manuelklyukvin.in_good_hands.core.utils.operations.use_cases.GetOperationErrorMessageUseCase
-import manuelklyukvin.in_good_hands.menu.mappers.UserMapper
 import manuelklyukvin.in_good_hands.menu.ui.view_models.models.MenuIntent
 import manuelklyukvin.in_good_hands.menu.ui.view_models.models.MenuState
-import manuelklyukvin.in_good_hands.menu.use_cases.GetCurrentUserUseCase
-import manuelklyukvin.in_good_hands.menu.use_cases.SignOutUserUseCase
+import manuelklyukvin.in_good_hands.users.mappers.UserMapper
+import manuelklyukvin.in_good_hands.users.use_cases.GetCurrentUserUseCase
 
 class MenuViewModel(
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
     private val userMapper: UserMapper,
-    private val signOutUserUseCase: SignOutUserUseCase,
     private val getOperationErrorMessageUseCase: GetOperationErrorMessageUseCase
 ) : MKUIViewModel<MenuState, MenuIntent>(MenuState()) {
     private var loadCurrentUserJob: Job? = null
@@ -41,25 +36,26 @@ class MenuViewModel(
         reduce { copy(viewState = MKUIViewState.LOADING) }
         loadCurrentUserJob?.cancel()
 
-        loadCurrentUserJob = viewModelScope.launch {
-            when (val getCurrentUserResult = getCurrentUserUseCase()) {
-                is OperationResult.Success -> reduce {
-                    copy(
-                        viewState = MKUIViewState.CONTENT,
-                        currentUser = getCurrentUserResult.data?.let {
-                            userMapper.toPresentation(it)
-                        },
-                        error = null
-                    )
-                }
-                is OperationResult.Error -> reduce {
-                    copy(
-                        viewState = MKUIViewState.ERROR,
-                        error = getOperationErrorMessageUseCase(getCurrentUserResult.error)
-                    )
-                }
-            }
-        }
+//        loadCurrentUserJob = viewModelScope.launch {
+//            when (val getCurrentUserResult = getCurrentUserUseCase()) {
+//                is OperationResult.Success -> reduce {
+//                    copy(
+//                        viewState = MKUIViewState.CONTENT,
+//                        currentUser = getCurrentUserResult.data?.let {
+//                            userMapper.toPresentation(it)
+//                        },
+//                        error = null
+//                    )
+//                }
+//                is OperationResult.Error -> reduce {
+//                    copy(
+//                        viewState = MKUIViewState.ERROR,
+//                        error = getOperationErrorMessageUseCase(getCurrentUserResult.error)
+//                    )
+//                }
+//            }
+//        }
+        reduce { copy(viewState = MKUIViewState.CONTENT) }
     }
 
     private fun onScreenOpened() = withInitialState { loadCurrentUser() }
@@ -87,23 +83,10 @@ class MenuViewModel(
             reduce { copy(viewState = MKUIViewState.LOADING) }
             signOutUserJob?.cancel()
 
-            signOutUserJob = viewModelScope.launch {
-                when (val signOutUserResult = signOutUserUseCase()) {
-                    is OperationResult.Success -> reduce {
-                        copy(
-                            viewState = MKUIViewState.CONTENT,
-                            currentUser = null,
-                            error = null
-                        )
-                    }
-                    is OperationResult.Error -> reduce {
-                        copy(
-                            viewState = MKUIViewState.ERROR,
-                            error = getOperationErrorMessageUseCase(signOutUserResult.error)
-                        )
-                    }
-                }
-            }
+//            signOutUserJob = viewModelScope.launch {
+//
+//            }
+            reduce { copy(viewState = MKUIViewState.CONTENT) }
         }
     }
 

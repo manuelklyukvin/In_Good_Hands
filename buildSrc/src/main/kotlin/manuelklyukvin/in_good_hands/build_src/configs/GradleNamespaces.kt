@@ -6,8 +6,12 @@ object GradleNamespaces {
     const val APP = "$BASE.app"
     const val CORE = "$BASE.core"
 
-    const val FEED = "$BASE.feed"
-    const val POST = "$BASE.post"
+    const val USERS = "$BASE.users"
+    const val POSTS = "$BASE.posts"
+    const val PETS = "$BASE.pets"
+    const val ADDRESSES = "$BASE.addresses"
 
+    const val FEED = "$BASE.feed"
     const val MENU = "$BASE.menu"
+    const val PROFILE = "$BASE.profile"
 }

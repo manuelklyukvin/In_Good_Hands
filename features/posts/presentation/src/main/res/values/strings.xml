@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="image_pager_counter">of</string>
+
+    <string name="pet_info_label">Pet information</string>
+    <string name="pet_nickname_label">Nickname</string>
+    <string name="pet_type_label">Type</string>
+    <string name="pet_gender_label">Gender</string>
+    <string name="pet_birth_year_label">Birth year</string>
+    <string name="pet_breed_label">Breed</string>
+
+    <string name="pet_unknown_field">Unknown</string>
+
+    <string name="user_info_label">Published by</string>
+</resources>

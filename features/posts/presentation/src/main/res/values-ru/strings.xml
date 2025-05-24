@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="image_pager_counter">из</string>
+
+    <string name="pet_info_label">Информация о питомце</string>
+    <string name="pet_nickname_label">Кличка</string>
+    <string name="pet_type_label">Вид</string>
+    <string name="pet_gender_label">Пол</string>
+    <string name="pet_birth_year_label">Год рождения</string>
+    <string name="pet_breed_label">Порода</string>
+
+    <string name="pet_unknown_field">Неизвестно</string>
+
+    <string name="user_info_label">Опубликовал</string>
+</resources>

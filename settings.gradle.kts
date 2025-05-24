@@ -4,45 +4,32 @@ val app = ":app"
 val core = ":core"
 val features = ":features"
 
-val feed = "$features:feed"
-val post = "$features:post"
+val users = "$features:users"
+val posts = "$features:posts"
+val pets = "$features:pets"
+val addresses = "$features:addresses"
 
+val feed = "$features:feed"
 val menu = "$features:menu"
+val profile ="$features:profile"
 
 include(app)
-include(
-    core,
-    dataModule(core),
-    domainModule(core),
-    presentationModule(core),
-    diModule(core)
-)
+include(*modules(core))
 include(features)
 
-include(
-    feed,
-    dataModule(feed),
-    domainModule(feed),
-    presentationModule(feed),
-    diModule(feed)
-)
-include(
-    post,
-    dataModule(post),
-    domainModule(post),
-    presentationModule(post),
-    diModule(post)
-)
+include(*modules(users))
+include(*modules(posts))
+include(*modules(pets))
+include(*modules(addresses))
 
-include(
-    menu,
-    dataModule(menu),
-    domainModule(menu),
-    presentationModule(menu),
-    diModule(menu)
-)
+include(*modules(feed))
+include(*modules(menu))
+include(*modules(profile))
 
-private fun dataModule(module: String) = "$module:data"
-private fun domainModule(module: String) = "$module:domain"
-private fun presentationModule(module: String) = "$module:presentation"
-private fun diModule(module: String) = "$module:di"
+private fun modules(name: String) = arrayOf(
+    name,
+    "$name:data",
+    "$name:domain",
+    "$name:presentation",
+    "$name:di"
+)
